@@ -132,35 +132,31 @@ export function Hero() {
           initial="hidden"
           animate="visible"
         >
-          {/* Logo with animation - enhanced sizing and effects */}
+          {/* Logo - Large and centered with beautiful effects */}
           <motion.div
-            className="relative"
+            className="relative mb-8"
             variants={logoVariants}
             whileHover={{
-              scale: 1.05,
+              scale: 1.03,
               transition: { type: "spring", stiffness: 300, damping: 20 }
             }}
           >
-            <div className="absolute inset-0 bg-gradient-brand blur-3xl opacity-30 animate-pulse-glow" />
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-pink-400/20 via-brand-purple-400/20 to-brand-blue-400/20 blur-2xl animate-pulse" />
+            {/* Animated glow effects */}
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-pink-500/30 via-brand-purple-500/30 to-brand-blue-500/30 blur-3xl opacity-40 animate-pulse-glow" />
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-blue-400/20 via-brand-cyan-400/20 to-brand-purple-400/20 blur-2xl animate-pulse" />
+
+            {/* Main logo - bigger and more prominent */}
             <Image
               src="/images/logo.png"
               alt="AiPlace - Where Creativity Meets AI"
-              width={800}
-              height={200}
+              width={1000}
+              height={260}
               priority
-              className="relative w-auto h-32 md:h-40 lg:h-48 object-contain drop-shadow-2xl"
+              className="relative w-auto h-40 md:h-52 lg:h-64 object-contain drop-shadow-2xl"
             />
-          </motion.div>
 
-          {/* Badge */}
-          <motion.div variants={itemVariants}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-brand-purple-200/50 shadow-lg">
-              <Sparkles className="w-4 h-4 text-brand-purple-600" />
-              <span className="text-sm font-medium bg-gradient-to-r from-brand-pink-600 via-brand-purple-600 to-brand-blue-600 bg-clip-text text-transparent">
-                {t("hero.badge")}
-              </span>
-            </div>
+            {/* Decorative elements */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-brand-pink-500/10 via-brand-purple-500/10 to-brand-blue-500/10 rounded-3xl blur-xl opacity-50" />
           </motion.div>
 
           {/* Main headline with gradient text - compact sizing */}
