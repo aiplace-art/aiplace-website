@@ -1,0 +1,174 @@
+{
+  "project": {
+    "name": "AiPlace",
+    "type": "multi-service-website",
+    "tagline": "Your Partner in Digital Innovation & AI Solutions",
+    "description": "Full-service digital agency specializing in web development, AI solutions, business planning, and tokenomics consulting"
+  },
+  "services": [
+    {
+      "id": "web-development",
+      "name": "Web Development",
+      "icon": "code",
+      "description": "Custom websites and web applications built with modern technologies",
+      "features": [
+        "Responsive design",
+        "E-commerce solutions",
+        "Progressive Web Apps",
+        "Performance optimization",
+        "Custom CMS integration"
+      ]
+    },
+    {
+      "id": "ai-solutions",
+      "name": "Artificial Intelligence",
+      "icon": "brain",
+      "description": "AI-powered solutions to automate and enhance your business processes",
+      "features": [
+        "Machine Learning models",
+        "Natural Language Processing",
+        "Computer Vision",
+        "AI Chatbots & Assistants",
+        "Predictive Analytics"
+      ]
+    },
+    {
+      "id": "business-planning",
+      "name": "Business Planning",
+      "icon": "chart",
+      "description": "Strategic business planning and consulting services",
+      "features": [
+        "Business model development",
+        "Market analysis",
+        "Financial projections",
+        "Go-to-market strategy",
+        "Investor pitch decks"
+      ]
+    },
+    {
+      "id": "tokenomics",
+      "name": "Tokenomics Design",
+      "icon": "coins",
+      "description": "Web3 and blockchain tokenomics consulting and implementation",
+      "features": [
+        "Token economy design",
+        "Smart contract development",
+        "Whitepaper creation",
+        "Tokenomics auditing",
+        "DeFi integration"
+      ]
+    }
+  ],
+  "sections": {
+    "hero": {
+      "enabled": true,
+      "style": "full-screen-gradient",
+      "cta": ["Get Started", "View Services"]
+    },
+    "services": {
+      "enabled": true,
+      "layout": "grid-4-col",
+      "detailPages": true
+    },
+    "about": {
+      "enabled": true,
+      "sections": ["mission", "values", "team"]
+    },
+    "portfolio": {
+      "enabled": true,
+      "categories": ["web", "ai", "blockchain", "consulting"],
+      "showcaseType": "case-studies"
+    },
+    "process": {
+      "enabled": true,
+      "steps": [
+        "Discovery & Analysis",
+        "Strategy & Planning",
+        "Design & Development",
+        "Testing & Launch",
+        "Support & Growth"
+      ]
+    },
+    "testimonials": {
+      "enabled": true,
+      "style": "carousel"
+    },
+    "blog": {
+      "enabled": true,
+      "categories": ["Web Dev", "AI", "Business", "Blockchain"]
+    },
+    "contact": {
+      "enabled": true,
+      "forms": ["general", "consultation", "quote"],
+      "integrations": ["email", "slack", "crm"]
+    }
+  },
+  "techStack": {
+    "frontend": {
+      "framework": "Next.js 14",
+      "language": "TypeScript",
+      "styling": "Tailwind CSS",
+      "components": "shadcn/ui",
+      "animations": "Framer Motion",
+      "icons": "Lucide React"
+    },
+    "backend": {
+      "runtime": "Node.js",
+      "api": "Next.js API Routes",
+      "database": "PostgreSQL",
+      "orm": "Prisma",
+      "auth": "NextAuth.js"
+    },
+    "cms": {
+      "platform": "Sanity.io",
+      "features": ["blog", "portfolio", "team-members"]
+    },
+    "deployment": {
+      "platform": "Vercel",
+      "cdn": "Cloudflare",
+      "analytics": ["Google Analytics 4", "Vercel Analytics"]
+    },
+    "tools": {
+      "forms": "React Hook Form + Zod",
+      "emails": "Resend",
+      "seo": "next-seo",
+      "sitemap": "next-sitemap"
+    }
+  },
+  "design": {
+    "theme": "modern-tech",
+    "colorScheme": "dark-with-accent",
+    "primaryColors": {
+      "brand": "#6366f1",
+      "accent": "#8b5cf6",
+      "background": "#0a0a0a",
+      "text": "#ffffff"
+    },
+    "typography": {
+      "heading": "Inter",
+      "body": "Inter",
+      "mono": "Fira Code"
+    },
+    "style": [
+      "Gradient backgrounds",
+      "Glassmorphism effects",
+      "Smooth animations",
+      "3D elements",
+      "Parallax scrolling"
+    ]
+  },
+  "features": {
+    "multilingual": false,
+    "darkMode": true,
+    "search": true,
+    "chatbot": true,
+    "newsletter": true,
+    "booking": true
+  },
+  "timeline": {
+    "phase1": "Requirements & Design (Week 1-2)",
+    "phase2": "Development & Integration (Week 3-5)",
+    "phase3": "Testing & Launch (Week 6)",
+    "phase4": "Post-launch Support (Ongoing)"
+  }
+}

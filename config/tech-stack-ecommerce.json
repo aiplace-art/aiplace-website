@@ -1,0 +1,433 @@
+{
+  "specialization": {
+    "name": "E-commerce + High-Tech + Premium Visual",
+    "version": "1.0.0",
+    "focus_areas": [
+      "Premium E-commerce",
+      "High-Tech Websites",
+      "Luxury Brand Sites",
+      "NFT Marketplaces",
+      "SaaS Platforms"
+    ]
+  },
+
+  "frontend": {
+    "core": {
+      "framework": "Next.js 15.0+",
+      "language": "TypeScript 5.3+",
+      "ui_library": "React 18+",
+      "styling": "Tailwind CSS 4.0",
+      "css_in_js": "Styled Components / Emotion"
+    },
+
+    "animations": {
+      "primary": {
+        "name": "GSAP (GreenSock)",
+        "version": "3.12+",
+        "use_cases": [
+          "Complex timeline animations",
+          "Scroll-triggered animations",
+          "SVG animations",
+          "3D transforms",
+          "Performance-critical animations"
+        ],
+        "plugins": [
+          "ScrollTrigger",
+          "Draggable",
+          "MotionPathPlugin",
+          "ScrollSmoother",
+          "SplitText"
+        ]
+      },
+      "react_animations": {
+        "name": "Framer Motion",
+        "version": "11+",
+        "use_cases": [
+          "React component animations",
+          "Layout animations",
+          "Gesture handling",
+          "Variants system",
+          "Exit animations"
+        ]
+      },
+      "smooth_scroll": {
+        "name": "Lenis",
+        "version": "1.0+",
+        "use_cases": [
+          "Smooth scrolling experience",
+          "Custom scroll behavior",
+          "Scroll synchronization"
+        ]
+      },
+      "particles": {
+        "libraries": [
+          "TSParticles",
+          "Particles.js",
+          "react-particles"
+        ],
+        "use_cases": [
+          "Background effects",
+          "Interactive particles",
+          "Hero animations"
+        ]
+      }
+    },
+
+    "3d_graphics": {
+      "engine": {
+        "name": "Three.js",
+        "version": "r160+",
+        "use_cases": [
+          "3D product viewers",
+          "Interactive backgrounds",
+          "Immersive experiences",
+          "WebGL effects"
+        ]
+      },
+      "react_integration": {
+        "name": "React Three Fiber",
+        "version": "8.15+",
+        "helpers": [
+          "@react-three/drei",
+          "@react-three/postprocessing",
+          "@react-three/cannon (physics)",
+          "@react-three/xr (VR/AR)"
+        ]
+      },
+      "shaders": {
+        "language": "GLSL",
+        "use_cases": [
+          "Custom visual effects",
+          "Post-processing",
+          "Material enhancements",
+          "Performance optimization"
+        ]
+      }
+    },
+
+    "state_management": {
+      "primary": "Zustand",
+      "alternatives": [
+        "Redux Toolkit",
+        "Jotai",
+        "Recoil"
+      ],
+      "server_state": "TanStack Query (React Query)"
+    },
+
+    "forms": {
+      "library": "React Hook Form",
+      "validation": "Zod",
+      "features": [
+        "Type-safe validation",
+        "Async validation",
+        "Field arrays",
+        "Form state management"
+      ]
+    },
+
+    "ui_components": {
+      "headless": [
+        "Radix UI",
+        "Headless UI",
+        "Ark UI"
+      ],
+      "component_libraries": [
+        "shadcn/ui (recommended)",
+        "Material UI",
+        "Chakra UI"
+      ]
+    }
+  },
+
+  "ecommerce": {
+    "headless_platforms": {
+      "primary": {
+        "name": "Shopify",
+        "framework": "Hydrogen + Oxygen",
+        "api": "Storefront API 2024-01",
+        "features": [
+          "Product catalog",
+          "Cart management",
+          "Checkout",
+          "Customer accounts",
+          "Multi-currency",
+          "Inventory management"
+        ]
+      },
+      "alternatives": [
+        {
+          "name": "Medusa.js",
+          "type": "Open-source headless commerce",
+          "best_for": "Custom requirements"
+        },
+        {
+          "name": "Commerce.js",
+          "type": "Headless ecommerce API",
+          "best_for": "JAMstack approach"
+        },
+        {
+          "name": "Saleor",
+          "type": "GraphQL-first commerce",
+          "best_for": "Large catalogs"
+        }
+      ]
+    },
+
+    "payments": {
+      "primary": "Stripe",
+      "additional": [
+        "PayPal",
+        "Apple Pay",
+        "Google Pay",
+        "Crypto payments (Web3)"
+      ]
+    },
+
+    "search": {
+      "primary": "Algolia",
+      "alternatives": [
+        "MeiliSearch",
+        "Typesense",
+        "ElasticSearch"
+      ],
+      "features": [
+        "Instant search",
+        "Autocomplete",
+        "Faceted filtering",
+        "Typo tolerance",
+        "Personalization"
+      ]
+    },
+
+    "cms": {
+      "headless_cms": [
+        "Sanity.io (recommended)",
+        "Contentful",
+        "Strapi",
+        "Payload CMS"
+      ],
+      "features": [
+        "Visual editing",
+        "Real-time collaboration",
+        "Asset management",
+        "Versioning",
+        "Localization"
+      ]
+    }
+  },
+
+  "backend": {
+    "api": {
+      "primary": "Next.js API Routes",
+      "type_safe": "tRPC",
+      "graphql": "Apollo Server / GraphQL Yoga"
+    },
+
+    "database": {
+      "primary": "PostgreSQL",
+      "orm": "Prisma",
+      "alternatives": [
+        "MongoDB + Mongoose",
+        "Supabase (PostgreSQL + Auth)",
+        "PlanetScale (MySQL)"
+      ]
+    },
+
+    "cache": {
+      "primary": "Redis",
+      "use_cases": [
+        "Session storage",
+        "API response caching",
+        "Rate limiting",
+        "Real-time features"
+      ]
+    },
+
+    "authentication": {
+      "primary": "NextAuth.js",
+      "alternatives": [
+        "Clerk",
+        "Auth0",
+        "Supabase Auth"
+      ],
+      "providers": [
+        "Email/Password",
+        "OAuth (Google, GitHub, etc.)",
+        "Magic links",
+        "Web3 wallets"
+      ]
+    },
+
+    "email": {
+      "transactional": [
+        "Resend (recommended)",
+        "SendGrid",
+        "Postmark",
+        "AWS SES"
+      ],
+      "templates": "React Email"
+    },
+
+    "file_storage": {
+      "primary": "Cloudinary",
+      "alternatives": [
+        "AWS S3",
+        "Vercel Blob",
+        "UploadThing"
+      ]
+    }
+  },
+
+  "devops": {
+    "hosting": {
+      "primary": "Vercel",
+      "features": [
+        "Edge Functions",
+        "ISR (Incremental Static Regeneration)",
+        "Image optimization",
+        "Analytics",
+        "Preview deployments"
+      ],
+      "alternatives": [
+        "Netlify",
+        "AWS Amplify",
+        "Cloudflare Pages"
+      ]
+    },
+
+    "cdn": {
+      "primary": "Cloudflare",
+      "features": [
+        "Global CDN",
+        "DDoS protection",
+        "Edge caching",
+        "Image optimization",
+        "Web analytics"
+      ]
+    },
+
+    "monitoring": {
+      "errors": "Sentry",
+      "analytics": [
+        "Vercel Analytics",
+        "Google Analytics 4",
+        "Plausible (privacy-focused)"
+      ],
+      "performance": [
+        "Lighthouse CI",
+        "WebPageTest",
+        "Chrome UX Report"
+      ]
+    },
+
+    "ci_cd": {
+      "primary": "GitHub Actions",
+      "workflows": [
+        "Automated testing",
+        "Build and deploy",
+        "Lighthouse CI",
+        "Type checking",
+        "Linting"
+      ]
+    }
+  },
+
+  "testing": {
+    "unit": {
+      "framework": "Vitest",
+      "library": "Testing Library"
+    },
+    "e2e": {
+      "framework": "Playwright",
+      "features": [
+        "Cross-browser testing",
+        "Visual regression",
+        "Network mocking",
+        "Parallel execution"
+      ]
+    },
+    "visual": {
+      "tool": "Chromatic / Percy",
+      "use_case": "Visual regression testing"
+    },
+    "performance": {
+      "tools": [
+        "Lighthouse CI",
+        "WebPageTest",
+        "k6 (load testing)"
+      ]
+    }
+  },
+
+  "visual_effects": {
+    "glassmorphism": {
+      "css_properties": [
+        "backdrop-filter: blur(10px)",
+        "background: rgba(255, 255, 255, 0.1)",
+        "border: 1px solid rgba(255, 255, 255, 0.2)"
+      ]
+    },
+    "gradients": {
+      "animated": "CSS + GSAP",
+      "mesh": "Mesh gradient generators",
+      "noise": "Perlin noise shaders"
+    },
+    "cursors": {
+      "custom": "Custom cursor with GSAP",
+      "interactive": "Magnetic effect on hover",
+      "trail": "Particle trail effect"
+    },
+    "loaders": {
+      "skeleton": "Shimmer effect",
+      "progress": "Animated progress bars",
+      "spinners": "Custom SVG animations"
+    }
+  },
+
+  "performance_targets": {
+    "core_web_vitals": {
+      "LCP": "< 2.5s",
+      "FID": "< 100ms",
+      "CLS": "< 0.1",
+      "INP": "< 200ms"
+    },
+    "page_speed": {
+      "desktop": "95+",
+      "mobile": "90+"
+    },
+    "bundle_size": {
+      "first_load_js": "< 200KB",
+      "shared_chunks": "Optimized code splitting"
+    }
+  },
+
+  "accessibility": {
+    "standard": "WCAG 2.1 Level AA",
+    "tools": [
+      "axe DevTools",
+      "Lighthouse accessibility audit",
+      "NVDA / JAWS testing"
+    ],
+    "features": [
+      "Keyboard navigation",
+      "Screen reader support",
+      "Focus management",
+      "Color contrast",
+      "Reduced motion support"
+    ]
+  },
+
+  "seo": {
+    "meta": "Next.js Metadata API",
+    "structured_data": "JSON-LD schema.org",
+    "sitemap": "Dynamic sitemap generation",
+    "robots": "robots.txt optimization",
+    "performance": "Core Web Vitals optimization",
+    "tools": [
+      "Google Search Console",
+      "Yandex Webmaster",
+      "Ahrefs / SEMrush"
+    ]
+  }
+}

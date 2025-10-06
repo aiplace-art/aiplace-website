@@ -1,0 +1,209 @@
+name: Scheduled Testing
+
+on:
+  schedule:
+    # Run every 2 hours
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
+
+jobs:
+  comprehensive-tests:
+    runs-on: ubuntu-latest
+    name: Full Test Suite
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Build application
+        run: npm run build
+
+      - name: Start application
+        run: npm start &
+        env:
+          NODE_ENV: production
+
+      - name: Wait for app to be ready
+        run: npx wait-on http://localhost:3000 --timeout 60000
+
+      - name: Run layout tests
+        run: npm run test:layout
+        continue-on-error: true
+
+      - name: Run i18n tests
+        run: npm run test:i18n
+        continue-on-error: true
+
+      - name: Run visual tests
+        run: npm run test:visual
+        continue-on-error: true
+        env:
+          CI: true
+
+      - name: Run performance tests
+        run: npm run test:performance
+        continue-on-error: true
+
+      - name: Run accessibility tests
+        run: npm run test:accessibility
+        continue-on-error: true
+
+      - name: Generate comprehensive report
+        run: npm run test:report
+
+      - name: Upload all reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scheduled-test-reports-${{ github.run_number }}
+          path: docs/testing/
+          retention-days: 90
+
+      - name: Check for critical failures
+        run: |
+          if [ -f docs/testing/layout-report.json ]; then
+            LAYOUT_ERRORS=$(jq '.summary.totalErrors' docs/testing/layout-report.json)
+            if [ "$LAYOUT_ERRORS" -gt 0 ]; then
+              echo "::warning::Layout tests found $LAYOUT_ERRORS errors"
+            fi
+          fi
+
+          if [ -f docs/testing/accessibility-report.json ]; then
+            A11Y_ERRORS=$(jq '.summary.totalErrors' docs/testing/accessibility-report.json)
+            if [ "$A11Y_ERRORS" -gt 0 ]; then
+              echo "::error::Accessibility tests found $A11Y_ERRORS errors"
+              exit 1
+            fi
+          fi
+
+      - name: Send notification on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Scheduled Test Failure - ${new Date().toISOString()}`,
+              body: `Scheduled tests failed. Please review the [workflow run](${context.payload.repository.html_url}/actions/runs/${context.runId}).`,
+              labels: ['testing', 'automated', 'bug']
+            });
+
+  performance-monitoring:
+    runs-on: ubuntu-latest
+    name: Performance Monitoring
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      - name: Start application
+        run: npm start &
+        env:
+          NODE_ENV: production
+
+      - name: Wait for app to be ready
+        run: npx wait-on http://localhost:3000 --timeout 60000
+
+      - name: Run Lighthouse CI
+        run: npx lighthouse-ci autorun
+        continue-on-error: true
+
+      - name: Upload Lighthouse results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-results-${{ github.run_number }}
+          path: .lighthouseci/
+          retention-days: 90
+
+      - name: Check performance regression
+        run: |
+          if [ -f docs/testing/performance-report.json ]; then
+            PERF_SCORE=$(jq '.scores.performance' docs/testing/performance-report.json)
+            if [ "$PERF_SCORE" -lt 90 ]; then
+              echo "::warning::Performance score dropped below threshold: $PERF_SCORE"
+            fi
+          fi
+
+  accessibility-monitoring:
+    runs-on: ubuntu-latest
+    name: Accessibility Monitoring
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      - name: Start application
+        run: npm start &
+        env:
+          NODE_ENV: production
+
+      - name: Wait for app to be ready
+        run: npx wait-on http://localhost:3000 --timeout 60000
+
+      - name: Run accessibility audit
+        run: npm run test:accessibility
+
+      - name: Upload accessibility results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: accessibility-audit-${{ github.run_number }}
+          path: docs/testing/accessibility-report.json
+          retention-days: 90
+
+      - name: Create issue for new accessibility errors
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            if (fs.existsSync('docs/testing/accessibility-report.json')) {
+              const report = JSON.parse(fs.readFileSync('docs/testing/accessibility-report.json', 'utf8'));
+              if (report.summary.totalErrors > 0) {
+                github.rest.issues.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title: `Accessibility Issues Detected - ${new Date().toISOString()}`,
+                  body: `Found ${report.summary.totalErrors} accessibility errors.\n\nPlease review the [full report](${context.payload.repository.html_url}/actions/runs/${context.runId}).`,
+                  labels: ['accessibility', 'a11y', 'bug']
+                });
+              }
+            }

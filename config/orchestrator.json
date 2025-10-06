@@ -1,0 +1,164 @@
+{
+  "orchestrator": {
+    "name": "Website Development Orchestrator",
+    "version": "2.0.0",
+    "topology": "hierarchical",
+    "maxAgents": 9,
+    "coordination": "claude-flow"
+  },
+  "team": {
+    "file_system_architect": {
+      "role": "structure_manager",
+      "priority": 0,
+      "responsibilities": [
+        "validate_project_structure",
+        "enforce_naming_conventions",
+        "manage_file_organization",
+        "monitor_code_quality",
+        "generate_structure_maps",
+        "ensure_logical_hierarchy"
+      ],
+      "tools": ["repo-architect", "code-analyzer", "reviewer"],
+      "automation": {
+        "validate_on_commit": true,
+        "auto_organize": true,
+        "generate_reports": "weekly"
+      }
+    },
+    "project_manager": {
+      "role": "orchestrator",
+      "priority": 1,
+      "responsibilities": [
+        "coordinate_all_agents",
+        "manage_workflow",
+        "track_progress",
+        "client_communication"
+      ],
+      "tools": ["task-orchestrator", "planner", "project-board-sync"]
+    },
+    "ui_ux_designer": {
+      "role": "designer",
+      "priority": 2,
+      "responsibilities": [
+        "user_research",
+        "wireframes",
+        "prototypes",
+        "design_system"
+      ],
+      "tools": ["researcher", "base-template-generator"]
+    },
+    "frontend_developer": {
+      "role": "frontend",
+      "priority": 3,
+      "responsibilities": [
+        "react_development",
+        "responsive_design",
+        "performance_optimization",
+        "ui_implementation"
+      ],
+      "tools": ["coder", "mobile-dev", "code-analyzer"]
+    },
+    "backend_developer": {
+      "role": "backend",
+      "priority": 3,
+      "responsibilities": [
+        "api_development",
+        "database_design",
+        "server_logic",
+        "security"
+      ],
+      "tools": ["backend-dev", "api-docs", "coder"]
+    },
+    "fullstack_developer": {
+      "role": "fullstack",
+      "priority": 4,
+      "responsibilities": [
+        "system_integration",
+        "architecture_review",
+        "code_review",
+        "mentoring"
+      ],
+      "tools": ["system-architect", "reviewer", "sparc-coord"]
+    },
+    "devops_engineer": {
+      "role": "devops",
+      "priority": 5,
+      "responsibilities": [
+        "ci_cd_pipeline",
+        "infrastructure",
+        "monitoring",
+        "deployment"
+      ],
+      "tools": ["cicd-engineer", "workflow-automation", "production-validator"]
+    },
+    "qa_engineer": {
+      "role": "qa",
+      "priority": 6,
+      "responsibilities": [
+        "test_creation",
+        "automation",
+        "quality_assurance",
+        "bug_tracking"
+      ],
+      "tools": ["tester", "tdd-london-swarm", "production-validator"]
+    },
+    "seo_specialist": {
+      "role": "seo",
+      "priority": 7,
+      "responsibilities": [
+        "seo_optimization",
+        "content_strategy",
+        "analytics",
+        "performance_monitoring"
+      ],
+      "tools": ["researcher", "perf-analyzer", "code-analyzer"]
+    }
+  },
+  "workflow": {
+    "phases": [
+      {
+        "name": "discovery",
+        "duration": "1-2 weeks",
+        "agents": ["project_manager", "ui_ux_designer", "seo_specialist"]
+      },
+      {
+        "name": "design",
+        "duration": "2-3 weeks",
+        "agents": ["ui_ux_designer", "frontend_developer", "backend_developer"]
+      },
+      {
+        "name": "development",
+        "duration": "4-8 weeks",
+        "agents": ["frontend_developer", "backend_developer", "fullstack_developer", "qa_engineer"]
+      },
+      {
+        "name": "testing",
+        "duration": "1-2 weeks",
+        "agents": ["qa_engineer", "devops_engineer", "seo_specialist"]
+      },
+      {
+        "name": "deployment",
+        "duration": "ongoing",
+        "agents": ["devops_engineer", "project_manager"]
+      }
+    ]
+  },
+  "communication": {
+    "daily_standup": true,
+    "sprint_duration": "2 weeks",
+    "code_review_required": true,
+    "documentation_required": true
+  },
+  "hooks": {
+    "pre_task": "npx claude-flow@alpha hooks pre-task",
+    "post_edit": "npx claude-flow@alpha hooks post-edit",
+    "post_task": "npx claude-flow@alpha hooks post-task",
+    "session_restore": "npx claude-flow@alpha hooks session-restore",
+    "notify": "npx claude-flow@alpha hooks notify"
+  },
+  "memory": {
+    "enabled": true,
+    "shared_context": true,
+    "neural_training": true
+  }
+}

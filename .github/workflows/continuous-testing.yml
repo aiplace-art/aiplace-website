@@ -1,0 +1,232 @@
+name: Continuous Testing
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+jobs:
+  layout-tests:
+    runs-on: ubuntu-latest
+    name: Layout Validation
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run layout tests
+        run: npm run test:layout
+
+      - name: Upload layout report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: layout-report
+          path: docs/testing/layout-report.json
+
+  i18n-tests:
+    runs-on: ubuntu-latest
+    name: I18n Validation
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run i18n tests
+        run: npm run test:i18n
+
+      - name: Upload i18n report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: i18n-report
+          path: docs/testing/i18n-report.json
+
+  visual-tests:
+    runs-on: ubuntu-latest
+    name: Visual/E2E Tests
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium
+
+      - name: Build application
+        run: npm run build
+
+      - name: Run Playwright tests
+        run: npm run test:visual
+        env:
+          CI: true
+
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: docs/testing/playwright-report
+          retention-days: 30
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-results
+          path: docs/testing/playwright-results.json
+
+  performance-tests:
+    runs-on: ubuntu-latest
+    name: Performance Tests
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      - name: Start application
+        run: npm start &
+        env:
+          NODE_ENV: production
+
+      - name: Wait for app to be ready
+        run: npx wait-on http://localhost:3000 --timeout 60000
+
+      - name: Run performance tests
+        run: npm run test:performance
+
+      - name: Upload performance report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: performance-report
+          path: docs/testing/performance-report.json
+
+  accessibility-tests:
+    runs-on: ubuntu-latest
+    name: Accessibility Tests
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      - name: Start application
+        run: npm start &
+        env:
+          NODE_ENV: production
+
+      - name: Wait for app to be ready
+        run: npx wait-on http://localhost:3000 --timeout 60000
+
+      - name: Run accessibility tests
+        run: npm run test:accessibility
+
+      - name: Upload accessibility report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: accessibility-report
+          path: docs/testing/accessibility-report.json
+
+  generate-report:
+    runs-on: ubuntu-latest
+    name: Generate Test Report
+    needs: [layout-tests, i18n-tests, visual-tests, performance-tests, accessibility-tests]
+    if: always()
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download all reports
+        uses: actions/download-artifact@v4
+        with:
+          path: docs/testing/
+
+      - name: Generate comprehensive report
+        run: npm run test:report
+
+      - name: Upload comprehensive report
+        uses: actions/upload-artifact@v4
+        with:
+          name: comprehensive-report
+          path: |
+            docs/testing/dashboard.html
+            docs/testing/SUMMARY.md
+
+      - name: Comment PR with results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const summary = fs.readFileSync('docs/testing/SUMMARY.md', 'utf8');
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `## Test Results\n\n${summary}`
+            });

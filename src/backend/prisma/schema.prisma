@@ -1,0 +1,752 @@
+// Prisma Schema for AiPlace Website
+// Database: PostgreSQL
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// CONTACT & LEAD MANAGEMENT
+// ============================================
+
+model Contact {
+  id            String   @id @default(cuid())
+  name          String
+  email         String
+  phone         String?
+  company       String?
+  formType      FormType @default(GENERAL)
+  message       String   @db.Text
+
+  // Additional fields for specific form types
+  serviceType   String?  // For consultation/quote forms
+  budget        String?
+  timeline      String?
+  projectDetails String? @db.Text
+
+  // Status tracking
+  status        ContactStatus @default(NEW)
+  assignedTo    String?
+
+  // CRM Integration
+  crmId         String?  @unique
+  crmSyncedAt   DateTime?
+
+  // Metadata
+  source        String?  // utm_source, referrer, etc.
+  ipAddress     String?
+  userAgent     String?
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Relations
+  notes         ContactNote[]
+  activities    ContactActivity[]
+
+  @@index([email])
+  @@index([status])
+  @@index([createdAt])
+  @@index([formType])
+  @@map("contacts")
+}
+
+model ContactNote {
+  id          String   @id @default(cuid())
+  contactId   String
+  content     String   @db.Text
+  createdBy   String   // User ID or "system"
+  createdAt   DateTime @default(now())
+
+  contact     Contact  @relation(fields: [contactId], references: [id], onDelete: Cascade)
+
+  @@index([contactId])
+  @@map("contact_notes")
+}
+
+model ContactActivity {
+  id          String   @id @default(cuid())
+  contactId   String
+  type        ActivityType
+  description String   @db.Text
+  metadata    Json?
+  createdAt   DateTime @default(now())
+
+  contact     Contact  @relation(fields: [contactId], references: [id], onDelete: Cascade)
+
+  @@index([contactId])
+  @@index([type])
+  @@map("contact_activities")
+}
+
+// ============================================
+// NEWSLETTER & SUBSCRIPTIONS
+// ============================================
+
+model Newsletter {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  name          String?
+  status        SubscriptionStatus @default(SUBSCRIBED)
+
+  // Preferences
+  categories    String[] // ["web-dev", "ai", "business", "blockchain"]
+  frequency     EmailFrequency @default(WEEKLY)
+
+  // Tracking
+  subscribedAt  DateTime @default(now())
+  unsubscribedAt DateTime?
+  confirmToken  String?  @unique
+  confirmedAt   DateTime?
+
+  // Metadata
+  source        String?
+  ipAddress     String?
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([email])
+  @@index([status])
+  @@map("newsletter_subscribers")
+}
+
+// ============================================
+// CONSULTATION BOOKING
+// ============================================
+
+model Consultation {
+  id              String   @id @default(cuid())
+
+  // Contact info
+  name            String
+  email           String
+  phone           String?
+  company         String?
+
+  // Consultation details
+  serviceType     String   // "web-development", "ai-solutions", etc.
+  preferredDate   DateTime
+  alternateDate   DateTime?
+  duration        Int      @default(60) // minutes
+
+  // Requirements
+  projectBrief    String   @db.Text
+  budget          String?
+  timeline        String?
+  urgency         UrgencyLevel @default(NORMAL)
+
+  // Status
+  status          ConsultationStatus @default(PENDING)
+  confirmedDate   DateTime?
+  meetingLink     String?
+
+  // CRM Integration
+  crmEventId      String?  @unique
+  calendarEventId String?
+
+  // Metadata
+  source          String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([email])
+  @@index([status])
+  @@index([preferredDate])
+  @@index([serviceType])
+  @@map("consultations")
+}
+
+// ============================================
+// BLOG MANAGEMENT
+// ============================================
+
+model BlogPost {
+  id            String   @id @default(cuid())
+
+  // Content
+  title         String
+  slug          String   @unique
+  excerpt       String   @db.Text
+  content       String   @db.Text
+  coverImage    String?
+
+  // Metadata
+  authorId      String?
+  category      String   // "Web Dev", "AI", "Business", "Blockchain"
+  tags          String[]
+
+  // SEO
+  metaTitle     String?
+  metaDescription String?
+  keywords      String[]
+
+  // Publishing
+  status        PostStatus @default(DRAFT)
+  publishedAt   DateTime?
+  scheduledFor  DateTime?
+
+  // Engagement
+  views         Int      @default(0)
+  likes         Int      @default(0)
+
+  // CMS Integration
+  sanityId      String?  @unique
+  sanityVersion Int?
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Relations
+  author        User?    @relation(fields: [authorId], references: [id])
+  comments      BlogComment[]
+
+  @@index([slug])
+  @@index([category])
+  @@index([status])
+  @@index([publishedAt])
+  @@map("blog_posts")
+}
+
+model BlogComment {
+  id          String   @id @default(cuid())
+  postId      String
+
+  // Author info
+  name        String
+  email       String
+  website     String?
+
+  // Content
+  content     String   @db.Text
+
+  // Moderation
+  status      CommentStatus @default(PENDING)
+  approved    Boolean  @default(false)
+  approvedBy  String?
+  approvedAt  DateTime?
+
+  // Relations
+  parentId    String?
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  post        BlogPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  parent      BlogComment? @relation("CommentReplies", fields: [parentId], references: [id])
+  replies     BlogComment[] @relation("CommentReplies")
+
+  @@index([postId])
+  @@index([status])
+  @@map("blog_comments")
+}
+
+// ============================================
+// PORTFOLIO / CASE STUDIES
+// ============================================
+
+model Portfolio {
+  id              String   @id @default(cuid())
+
+  // Basic info
+  title           String
+  slug            String   @unique
+  client          String?
+  industry        String?
+
+  // Content
+  description     String   @db.Text
+  challenge       String   @db.Text
+  solution        String   @db.Text
+  results         String   @db.Text
+
+  // Media
+  coverImage      String?
+  images          String[]
+  videoUrl        String?
+
+  // Categorization
+  category        PortfolioCategory
+  services        String[] // ["web-development", "ai-solutions", etc.]
+  technologies    String[] // Tech stack used
+  tags            String[]
+
+  // Metrics
+  projectDuration String?
+  teamSize        Int?
+  metrics         Json?    // Custom metrics: ROI, performance improvements, etc.
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?
+
+  // Publishing
+  status          PostStatus @default(DRAFT)
+  featured        Boolean  @default(false)
+  publishedAt     DateTime?
+
+  // CMS Integration
+  sanityId        String?  @unique
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  testimonials    Testimonial[]
+
+  @@index([slug])
+  @@index([category])
+  @@index([status])
+  @@index([featured])
+  @@map("portfolio_items")
+}
+
+// ============================================
+// TESTIMONIALS & REVIEWS
+// ============================================
+
+model Testimonial {
+  id            String   @id @default(cuid())
+
+  // Client info
+  clientName    String
+  clientRole    String?
+  clientCompany String?
+  clientImage   String?
+
+  // Content
+  content       String   @db.Text
+  rating        Int      @default(5) // 1-5 stars
+
+  // Categorization
+  serviceType   String?  // Which service this relates to
+  portfolioId   String?
+
+  // Publishing
+  status        PostStatus @default(DRAFT)
+  featured      Boolean  @default(false)
+  displayOrder  Int      @default(0)
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  portfolio     Portfolio? @relation(fields: [portfolioId], references: [id])
+
+  @@index([status])
+  @@index([featured])
+  @@index([serviceType])
+  @@map("testimonials")
+}
+
+// ============================================
+// USER MANAGEMENT (FOR ADMIN)
+// ============================================
+
+model User {
+  id            String   @id @default(cuid())
+  name          String
+  email         String   @unique
+  emailVerified DateTime?
+  image         String?
+  role          UserRole @default(EDITOR)
+
+  // Auth
+  password      String?
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Relations
+  blogPosts     BlogPost[]
+
+  @@index([email])
+  @@map("users")
+}
+
+// ============================================
+// SERVICES CONFIGURATION
+// ============================================
+
+model Service {
+  id            String   @id @default(cuid())
+  name          String
+  slug          String   @unique
+  icon          String
+  description   String   @db.Text
+  features      String[]
+
+  // Pricing (optional)
+  priceFrom     Decimal?
+  priceTo       Decimal?
+  priceModel    String?  // "fixed", "hourly", "project-based"
+
+  // Display
+  displayOrder  Int      @default(0)
+  active        Boolean  @default(true)
+  featured      Boolean  @default(false)
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([slug])
+  @@map("services")
+}
+
+// ============================================
+// ANALYTICS & TRACKING
+// ============================================
+
+model PageView {
+  id          String   @id @default(cuid())
+  path        String
+  referrer    String?
+  userAgent   String?
+  ipAddress   String?
+  country     String?
+  device      String?
+  browser     String?
+
+  // Session tracking
+  sessionId   String?
+  userId      String?
+
+  createdAt   DateTime @default(now())
+
+  @@index([path])
+  @@index([sessionId])
+  @@index([createdAt])
+  @@map("page_views")
+}
+
+// ============================================
+// ENUMS
+// ============================================
+
+enum FormType {
+  GENERAL
+  CONSULTATION
+  QUOTE
+  SUPPORT
+}
+
+enum ContactStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  PROPOSAL_SENT
+  NEGOTIATION
+  WON
+  LOST
+  ARCHIVED
+}
+
+enum ActivityType {
+  EMAIL_SENT
+  EMAIL_OPENED
+  LINK_CLICKED
+  FORM_SUBMITTED
+  CALL_SCHEDULED
+  CALL_COMPLETED
+  NOTE_ADDED
+  STATUS_CHANGED
+}
+
+enum SubscriptionStatus {
+  PENDING
+  SUBSCRIBED
+  UNSUBSCRIBED
+  BOUNCED
+}
+
+enum EmailFrequency {
+  DAILY
+  WEEKLY
+  MONTHLY
+}
+
+enum ConsultationStatus {
+  PENDING
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+  RESCHEDULED
+}
+
+enum UrgencyLevel {
+  LOW
+  NORMAL
+  HIGH
+  URGENT
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum CommentStatus {
+  PENDING
+  APPROVED
+  SPAM
+  REJECTED
+}
+
+enum PortfolioCategory {
+  WEB
+  AI
+  BLOCKCHAIN
+  CONSULTING
+}
+
+enum UserRole {
+  ADMIN
+  EDITOR
+  VIEWER
+}
+
+// ============================================
+// AI ASSISTANT / CHAT SYSTEM
+// ============================================
+
+model Conversation {
+  id              String   @id @default(cuid())
+
+  // Session info
+  sessionId       String   @unique
+  visitorId       String?  // Anonymous visitor tracking
+  ipAddress       String?
+  userAgent       String?
+
+  // Contact info (captured during conversation)
+  name            String?
+  email           String?
+  phone           String?
+  company         String?
+
+  // Conversation metadata
+  title           String?  // Auto-generated summary
+  context         Json?    // Conversation context and metadata
+  tags            String[] // Auto-tagged topics
+
+  // Lead information
+  leadScore       Int      @default(0) // 0-100
+  leadQuality     LeadQuality @default(UNKNOWN)
+  interestedServices String[] // Services discussed
+
+  // Status tracking
+  status          ConversationStatus @default(ACTIVE)
+  sentiment       Sentiment @default(NEUTRAL)
+
+  // Appointment booking
+  appointmentRequested Boolean @default(false)
+  appointmentBooked    Boolean @default(false)
+  appointmentId        String?
+
+  // Analytics
+  messageCount    Int      @default(0)
+  totalTokens     Int      @default(0)
+  duration        Int?     // Seconds
+
+  // Moderation
+  flagged         Boolean  @default(false)
+  flagReason      String?
+  reviewedBy      String?
+  reviewedAt      DateTime?
+
+  // Timestamps
+  startedAt       DateTime @default(now())
+  lastMessageAt   DateTime @default(now())
+  endedAt         DateTime?
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  messages        Message[]
+  leadScores      LeadScore[]
+  analytics       ChatAnalytics[]
+
+  @@index([sessionId])
+  @@index([visitorId])
+  @@index([email])
+  @@index([status])
+  @@index([leadQuality])
+  @@index([startedAt])
+  @@index([lastMessageAt])
+  @@map("conversations")
+}
+
+model Message {
+  id              String   @id @default(cuid())
+  conversationId  String
+
+  // Message content
+  role            MessageRole // user, assistant, system
+  content         String   @db.Text
+
+  // AI metadata
+  model           String?  // Claude model used
+  tokens          Int?     // Tokens used
+  finishReason    String?  // stop, length, content_filter
+
+  // Context and tools
+  contextUsed     Json?    // Context provided to AI
+  toolCalls       Json?    // Tools/functions called
+
+  // Metadata
+  timestamp       DateTime @default(now())
+  edited          Boolean  @default(false)
+  deleted         Boolean  @default(false)
+
+  // Relations
+  conversation    Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  @@index([conversationId])
+  @@index([timestamp])
+  @@map("messages")
+}
+
+model LeadScore {
+  id              String   @id @default(cuid())
+  conversationId  String
+
+  // Scoring components (0-20 each, total 100)
+  engagementScore      Int @default(0) // Message frequency, length, questions
+  intentScore          Int @default(0) // Clear buying signals
+  budgetScore          Int @default(0) // Budget indicators
+  timelineScore        Int @default(0) // Urgency/timeline mentioned
+  qualificationScore   Int @default(0) // Authority, need, fit
+
+  // Total score
+  totalScore      Int @default(0) // Sum of above
+
+  // Scoring metadata
+  signals         Json?    // Detected signals
+  keywords        String[] // Key phrases detected
+
+  // AI analysis
+  summary         String?  @db.Text
+  recommendations String?  @db.Text
+
+  // Timestamps
+  calculatedAt    DateTime @default(now())
+
+  // Relations
+  conversation    Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  @@index([conversationId])
+  @@index([totalScore])
+  @@map("lead_scores")
+}
+
+model ChatAnalytics {
+  id              String   @id @default(cuid())
+  conversationId  String?
+
+  // Event tracking
+  eventType       AnalyticsEvent
+  eventData       Json?
+
+  // Performance metrics
+  responseTime    Int?     // Milliseconds
+  tokensUsed      Int?
+
+  // User interaction
+  userSatisfaction Int?    // 1-5 rating if provided
+  feedback        String?  @db.Text
+
+  // Session info
+  sessionId       String?
+  visitorId       String?
+
+  // Metadata
+  createdAt       DateTime @default(now())
+
+  // Relations
+  conversation    Conversation? @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  @@index([conversationId])
+  @@index([eventType])
+  @@index([sessionId])
+  @@index([createdAt])
+  @@map("chat_analytics")
+}
+
+model RateLimitLog {
+  id              String   @id @default(cuid())
+
+  // Identifier
+  ipAddress       String
+  identifier      String?  // Session ID or user ID
+
+  // Rate limit info
+  endpoint        String
+  requestCount    Int      @default(1)
+
+  // Window tracking
+  windowStart     DateTime
+  windowEnd       DateTime
+
+  // Blocking
+  blocked         Boolean  @default(false)
+  blockReason     String?
+
+  createdAt       DateTime @default(now())
+
+  @@index([ipAddress, windowStart])
+  @@index([identifier, windowStart])
+  @@map("rate_limit_logs")
+}
+
+// ============================================
+// AI ASSISTANT ENUMS
+// ============================================
+
+enum MessageRole {
+  USER
+  ASSISTANT
+  SYSTEM
+}
+
+enum ConversationStatus {
+  ACTIVE
+  COMPLETED
+  ABANDONED
+  TRANSFERRED
+  BLOCKED
+}
+
+enum LeadQuality {
+  UNKNOWN
+  LOW
+  MEDIUM
+  HIGH
+  QUALIFIED
+}
+
+enum Sentiment {
+  VERY_NEGATIVE
+  NEGATIVE
+  NEUTRAL
+  POSITIVE
+  VERY_POSITIVE
+}
+
+enum AnalyticsEvent {
+  CONVERSATION_STARTED
+  MESSAGE_SENT
+  MESSAGE_RECEIVED
+  LEAD_QUALIFIED
+  APPOINTMENT_REQUESTED
+  APPOINTMENT_BOOKED
+  CONVERSATION_ENDED
+  ERROR_OCCURRED
+  RATE_LIMITED
+  FEEDBACK_RECEIVED
+}

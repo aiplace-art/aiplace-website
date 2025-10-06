@@ -1,0 +1,65 @@
+AiPlace Design System - Component Map
+=====================================
+
+📦 /src/components/
+│
+├── 🎨 ui/ (6 components)
+│   ├── button.tsx        - Multi-variant button (default, secondary, ghost, outline, link)
+│   ├── input.tsx         - Text input with glass morphism
+│   ├── textarea.tsx      - Multi-line text input
+│   ├── select.tsx        - Dropdown with custom options
+│   ├── card.tsx          - Container with header/content/footer
+│   └── badge.tsx         - Labels and tags (5 variants)
+│
+├── 🏗️ layout/ (2 components)
+│   ├── header.tsx        - Navigation with scroll effects, mobile menu
+│   └── footer.tsx        - Links, newsletter, social media
+│
+├── 📦 sections/ (6 components)
+│   ├── hero.tsx                    - Full-screen hero with animations
+│   ├── service-card.tsx            - Individual service card
+│   ├── services-grid.tsx           - 4-column service showcase
+│   ├── portfolio-grid.tsx          - Filterable project grid
+│   ├── process-timeline.tsx        - 5-step timeline visualization
+│   └── testimonial-carousel.tsx    - Auto-rotating testimonials
+│
+├── 📝 forms/ (1 component)
+│   └── contact-form.tsx  - Multi-step form (3 steps)
+│
+├── 🎯 demo.tsx           - Full component showcase page
+└── 📤 index.ts           - Component exports
+
+📚 Supporting Files:
+├── /src/lib/utils.ts              - cn() utility function
+├── /src/types/index.ts            - TypeScript interfaces
+├── /src/styles/globals.css        - Global styles + Tailwind
+├── /src/app/layout.tsx            - Next.js root layout
+└── /src/app/page.tsx              - Demo page
+
+📖 Documentation:
+├── /docs/DESIGN-SYSTEM.md         - Full design system documentation
+├── /docs/COMPONENT-SUMMARY.md     - Implementation summary
+├── /docs/QUICK-START.md           - Quick start guide
+└── /README.md                     - Project overview
+
+⚙️ Configuration:
+├── package.json                   - Dependencies + scripts
+├── tsconfig.json                  - TypeScript config
+├── tailwind.config.ts             - Tailwind config
+├── postcss.config.js              - PostCSS config
+└── next.config.js                 - Next.js config
+
+Component Count: 15 main components + 6 UI primitives = 21 total
+Files Created: 29 files
+Lines of Code: ~3,500+
+
+Technology Stack:
+- Next.js 14 (App Router)
+- React 18
+- TypeScript 5.3
+- Tailwind CSS 3.4
+- Framer Motion 11
+- Lucide React 0.344
+- shadcn/ui patterns
+
+To view: npm run dev → http://localhost:3000

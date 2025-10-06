@@ -1,0 +1,265 @@
+{
+  "team": {
+    "name": "AiPlace Design Team",
+    "version": "1.0.0",
+    "description": "Professional design team for creating stunning, conversion-focused websites",
+    "workflow": "collaborative-design-system"
+  },
+  "roles": [
+    {
+      "id": "ui-designer",
+      "name": "UI Designer",
+      "agent": "coder",
+      "responsibilities": [
+        "Visual design system creation",
+        "Component design and styling",
+        "Color palette and typography",
+        "Icon and imagery selection",
+        "Responsive layouts"
+      ],
+      "tools": ["Tailwind CSS", "shadcn/ui", "Lucide Icons", "Framer Motion"],
+      "deliverables": [
+        "Design system components",
+        "Color and typography guidelines",
+        "UI component library"
+      ]
+    },
+    {
+      "id": "ux-designer",
+      "name": "UX Designer",
+      "agent": "researcher",
+      "responsibilities": [
+        "User flow analysis",
+        "Information architecture",
+        "Wireframing and prototyping",
+        "Usability optimization",
+        "Accessibility compliance"
+      ],
+      "tools": ["User research", "Journey mapping", "A/B testing strategy"],
+      "deliverables": [
+        "User flow diagrams",
+        "Wireframes",
+        "UX recommendations"
+      ]
+    },
+    {
+      "id": "brand-designer",
+      "name": "Brand Designer",
+      "agent": "coder",
+      "responsibilities": [
+        "Brand identity integration",
+        "Logo placement and usage",
+        "Visual consistency",
+        "Brand voice in design",
+        "Marketing material design"
+      ],
+      "tools": ["Brand guidelines", "Visual identity systems"],
+      "deliverables": [
+        "Brand integration guide",
+        "Logo usage examples",
+        "Marketing assets"
+      ]
+    },
+    {
+      "id": "motion-designer",
+      "name": "Motion Designer",
+      "agent": "coder",
+      "responsibilities": [
+        "Animation and transitions",
+        "Micro-interactions",
+        "Loading states",
+        "Scroll effects",
+        "Interactive elements"
+      ],
+      "tools": ["Framer Motion", "CSS animations", "GSAP"],
+      "deliverables": [
+        "Animation library",
+        "Interaction patterns",
+        "Performance-optimized animations"
+      ]
+    },
+    {
+      "id": "web-designer",
+      "name": "Web Designer",
+      "agent": "system-architect",
+      "responsibilities": [
+        "Page layout design",
+        "Content hierarchy",
+        "Grid systems",
+        "Responsive breakpoints",
+        "Cross-browser compatibility"
+      ],
+      "tools": ["CSS Grid", "Flexbox", "Responsive design patterns"],
+      "deliverables": [
+        "Page layouts",
+        "Responsive templates",
+        "Grid system documentation"
+      ]
+    },
+    {
+      "id": "design-reviewer",
+      "name": "Design Quality Reviewer",
+      "agent": "reviewer",
+      "responsibilities": [
+        "Design quality assurance",
+        "Consistency checking",
+        "Accessibility audit",
+        "Performance review",
+        "Best practices validation"
+      ],
+      "tools": ["Lighthouse", "WAVE", "Design review checklist"],
+      "deliverables": [
+        "Design audit report",
+        "Improvement recommendations",
+        "Quality metrics"
+      ]
+    }
+  ],
+  "designPrinciples": {
+    "visual": [
+      "Clean and modern aesthetics",
+      "Consistent visual language",
+      "Proper whitespace usage",
+      "Clear visual hierarchy",
+      "Professional typography"
+    ],
+    "ux": [
+      "User-centered design",
+      "Intuitive navigation",
+      "Fast load times",
+      "Mobile-first approach",
+      "Accessibility (WCAG AA)"
+    ],
+    "brand": [
+      "Logo as focal point",
+      "Brand color consistency",
+      "Voice and tone alignment",
+      "Trust and credibility",
+      "Professional appearance"
+    ],
+    "technical": [
+      "Performance optimization",
+      "Cross-browser compatibility",
+      "Responsive on all devices",
+      "SEO-friendly markup",
+      "Progressive enhancement"
+    ]
+  },
+  "workflow": {
+    "phases": [
+      {
+        "name": "Research & Analysis",
+        "agents": ["ux-designer"],
+        "tasks": [
+          "Analyze current design",
+          "Identify pain points",
+          "Research competitors",
+          "Define user personas",
+          "Create user flows"
+        ]
+      },
+      {
+        "name": "Design System",
+        "agents": ["ui-designer", "brand-designer"],
+        "tasks": [
+          "Create color palette from logo",
+          "Define typography scale",
+          "Design component library",
+          "Establish spacing system",
+          "Create icon set"
+        ]
+      },
+      {
+        "name": "Page Design",
+        "agents": ["web-designer", "ui-designer"],
+        "tasks": [
+          "Design homepage layout",
+          "Create service pages",
+          "Design portfolio section",
+          "Build contact forms",
+          "Create about page"
+        ]
+      },
+      {
+        "name": "Motion & Interaction",
+        "agents": ["motion-designer"],
+        "tasks": [
+          "Add page transitions",
+          "Create hover effects",
+          "Design loading states",
+          "Implement scroll animations",
+          "Add micro-interactions"
+        ]
+      },
+      {
+        "name": "Review & Refine",
+        "agents": ["design-reviewer"],
+        "tasks": [
+          "Conduct design audit",
+          "Check accessibility",
+          "Test responsiveness",
+          "Validate performance",
+          "Gather feedback"
+        ]
+      }
+    ]
+  },
+  "currentProject": {
+    "name": "AiPlace Website Redesign",
+    "objective": "Create professional, conversion-focused design matching logo aesthetic",
+    "requirements": {
+      "brand": {
+        "logo": "/images/aiplace-logo.png",
+        "colors": {
+          "primary": "#3B82F6",
+          "secondary": "#06B6D4",
+          "accent1": "#9333EA",
+          "accent2": "#EC4899",
+          "text": "#1E293B",
+          "background": "#FFFFFF"
+        },
+        "tagline": "Where Creativity Meets AI"
+      },
+      "pages": [
+        "Homepage (Hero, Services, Portfolio, Contact)",
+        "4 Service detail pages",
+        "Portfolio with case studies",
+        "About page",
+        "Blog",
+        "Contact page"
+      ],
+      "features": [
+        "AI chatbot widget",
+        "Contact forms",
+        "Newsletter signup",
+        "Social media integration",
+        "Responsive navigation"
+      ],
+      "targetAudience": [
+        "Startups seeking digital solutions",
+        "Businesses needing AI integration",
+        "Web3/blockchain projects",
+        "SMBs requiring web development"
+      ]
+    }
+  },
+  "qualityMetrics": {
+    "visual": {
+      "consistency": "100%",
+      "brandAlignment": "Perfect match with logo",
+      "modernAesthetic": "Contemporary design patterns"
+    },
+    "ux": {
+      "navigationClarity": "Intuitive and clear",
+      "loadTime": "< 2s",
+      "mobileUsability": "Touch-optimized",
+      "accessibility": "WCAG AA compliant"
+    },
+    "technical": {
+      "lighthouseScore": "> 90",
+      "responsiveness": "All breakpoints",
+      "browserSupport": "Modern browsers",
+      "performance": "Optimized assets"
+    }
+  }
+}

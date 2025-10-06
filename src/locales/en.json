@@ -1,0 +1,426 @@
+{
+  "nav": {
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "badge": "Powered by Advanced AI Technology",
+    "title": "Where Creativity",
+    "titleLine2": "Meets AI",
+    "description": "Transform your vision into reality with AI-powered solutions, premium web development, and strategic innovation for modern businesses.",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "stats": {
+      "projects": "Projects Delivered",
+      "satisfaction": "Client Satisfaction",
+      "support": "Premium Support"
+    }
+  },
+  "services": {
+    "title": "What We Do",
+    "description": "Comprehensive solutions from concept to completion.",
+    "descriptionLine2": "One partner for your entire digital journey.",
+    "webDev": {
+      "title": "Web Development",
+      "description": "Modern websites and applications built with cutting-edge technology"
+    },
+    "ai": {
+      "title": "Artificial Intelligence",
+      "description": "AI-powered solutions that transform your business operations"
+    },
+    "business": {
+      "title": "Business Planning",
+      "description": "Strategic planning and consulting to accelerate growth"
+    },
+    "tokenomics": {
+      "title": "Tokenomics Design",
+      "description": "Web3 and blockchain consulting for the decentralized future"
+    }
+  },
+  "portfolio": {
+    "title": "Featured Projects",
+    "description": "Explore our portfolio of successful client projects",
+    "categories": {
+      "all": "All",
+      "webDev": "Web Development",
+      "ai": "AI Solutions",
+      "business": "Business Planning",
+      "tokenomics": "Tokenomics"
+    },
+    "quickView": "Quick View",
+    "caseStudy": "Case Study",
+    "viewAll": "View All Projects",
+    "projects": {
+      "ecommerce": {
+        "title": "E-Commerce Platform Redesign",
+        "client": "TechRetail Co.",
+        "description": "Complete redesign and development of a high-traffic e-commerce platform",
+        "results": {
+          "conversionRate": "Conversion Rate",
+          "pageLoadTime": "Page Load Time"
+        }
+      },
+      "chatbot": {
+        "title": "AI Chatbot Integration",
+        "client": "FinanceHub",
+        "description": "Custom AI chatbot for customer support automation",
+        "results": {
+          "responseTime": "Response Time",
+          "customerSatisfaction": "Customer Satisfaction"
+        }
+      },
+      "pitch": {
+        "title": "Startup Pitch Deck",
+        "client": "InnovateTech",
+        "description": "Comprehensive business plan and investor pitch deck",
+        "results": {
+          "fundingRaised": "Funding Raised",
+          "investorInterest": "Investor Interest"
+        }
+      },
+      "defi": {
+        "title": "DeFi Token Launch",
+        "client": "CryptoVentures",
+        "description": "Complete tokenomics design and smart contract development",
+        "results": {
+          "tokenHolders": "Token Holders",
+          "tvl": "TVL"
+        }
+      },
+      "healthcare": {
+        "title": "Healthcare Portal",
+        "client": "MediCare Plus",
+        "description": "HIPAA-compliant patient management system",
+        "results": {
+          "patientProcessing": "Patient Processing",
+          "errorRate": "Error Rate"
+        }
+      },
+      "vision": {
+        "title": "Computer Vision System",
+        "client": "ManufactureAI",
+        "description": "Quality control automation using computer vision",
+        "results": {
+          "defectDetection": "Defect Detection",
+          "costReduction": "Cost Reduction"
+        }
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Client Success Stories",
+    "description": "See what our clients have to say about working with us",
+    "stats": {
+      "projectsCompleted": "Projects Completed",
+      "clientSatisfaction": "Client Satisfaction",
+      "activeClients": "Active Clients",
+      "averageRating": "Average Rating"
+    }
+  },
+  "contact": {
+    "title": "Let's Work Together",
+    "description": "Ready to transform your business with cutting-edge technology?",
+    "descriptionLine2": "Get in touch and let's build something amazing.",
+    "ctaTitle": "Ready to Get Started?",
+    "ctaDescription": "Schedule a free consultation to discuss your project and discover how we can help bring your vision to life.",
+    "contactUs": "Contact Us",
+    "emailUs": "Email Us",
+    "callUs": "Or call us at",
+    "form": {
+      "title": "Let's get started",
+      "subtitle": "Tell us a bit about yourself and your project",
+      "step": "Step",
+      "of": "of",
+      "complete": "Complete",
+      "fields": {
+        "name": "Full Name",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "company": "Company Name",
+        "service": "Which service are you interested in?",
+        "budget": "Budget Range",
+        "timeline": "Project Timeline",
+        "projectType": "Project Type/Description",
+        "message": "Tell us more about your project"
+      },
+      "placeholders": {
+        "name": "John Doe",
+        "email": "john@company.com",
+        "phone": "+1 (555) 000-0000",
+        "company": "Your Company",
+        "service": "Select a service",
+        "budget": "Select budget range",
+        "timeline": "Select timeline",
+        "projectType": "e.g., E-commerce website, AI chatbot, Business plan",
+        "message": "Share your goals, challenges, or any specific requirements..."
+      },
+      "steps": {
+        "step1": {
+          "title": "Let's get started",
+          "subtitle": "Tell us a bit about yourself and your project"
+        },
+        "step2": {
+          "title": "Project Details",
+          "subtitle": "Help us understand your project scope"
+        },
+        "step3": {
+          "title": "Almost there!",
+          "subtitle": "Any additional details you'd like to share?"
+        }
+      },
+      "services": {
+        "webDevelopment": "Web Development",
+        "aiSolutions": "AI Solutions",
+        "businessPlanning": "Business Planning",
+        "tokenomics": "Tokenomics Design",
+        "other": "Other"
+      },
+      "budgets": {
+        "5k-10k": "$5,000 - $10,000",
+        "10k-25k": "$10,000 - $25,000",
+        "25k-50k": "$25,000 - $50,000",
+        "50k-100k": "$50,000 - $100,000",
+        "100k+": "$100,000+"
+      },
+      "timelines": {
+        "urgent": "Urgent (< 1 month)",
+        "1-3": "1-3 months",
+        "3-6": "3-6 months",
+        "6+": "6+ months",
+        "flexible": "Flexible"
+      },
+      "buttons": {
+        "previous": "Previous",
+        "next": "Next Step",
+        "submit": "Submit Inquiry",
+        "sending": "Sending..."
+      },
+      "privacy": "By submitting this form, you agree to our privacy policy and consent to being contacted about your inquiry.",
+      "success": {
+        "title": "Thank You!",
+        "message": "We've received your inquiry.",
+        "detail": "Our team will get back to you within 24 hours.",
+        "button": "Submit Another Inquiry"
+      },
+      "error": "Error",
+      "required": "*"
+    },
+    "info": {
+      "title": "Get in Touch",
+      "email": {
+        "label": "Email",
+        "value": "hello@aiplace.com"
+      },
+      "phone": {
+        "label": "Phone",
+        "value": "+1 (555) 123-4567"
+      },
+      "location": {
+        "label": "Location",
+        "value": "San Francisco, CA"
+      }
+    },
+    "social": {
+      "title": "Follow Us",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "facebook": "Facebook"
+    },
+    "hours": {
+      "title": "Office Hours",
+      "weekdays": "Monday - Friday",
+      "weekdaysTime": "9:00 AM - 6:00 PM",
+      "saturday": "Saturday",
+      "saturdayTime": "10:00 AM - 4:00 PM",
+      "sunday": "Sunday",
+      "sundayTime": "Closed",
+      "responseTime": "Response time: Within 24 hours on business days"
+    }
+  },
+  "cta": {
+    "title": "Ready to Start?",
+    "description": "Join 150+ satisfied clients who have transformed their businesses with AiPlace",
+    "getStarted": "Get Started Today",
+    "stats": {
+      "projectsDelivered": "Projects Delivered",
+      "clientSatisfaction": "Client Satisfaction",
+      "activeClients": "Active Clients",
+      "premiumSupport": "Premium Support"
+    }
+  },
+  "footer": {
+    "tagline": "Your Partner in Digital Innovation & AI Solutions. Transforming businesses with cutting-edge technology and strategic expertise.",
+    "email": "hello@aiplace.com",
+    "phone": "+1 (234) 567-890",
+    "location": "San Francisco, CA 94102",
+    "sections": {
+      "services": "Services",
+      "company": "Company",
+      "resources": "Resources",
+      "legal": "Legal"
+    },
+    "services": {
+      "webDevelopment": "Web Development",
+      "aiSolutions": "AI Solutions",
+      "businessPlanning": "Business Planning",
+      "tokenomics": "Tokenomics"
+    },
+    "company": {
+      "about": "About Us",
+      "portfolio": "Portfolio",
+      "blog": "Blog",
+      "careers": "Careers"
+    },
+    "resources": {
+      "caseStudies": "Case Studies",
+      "documentation": "Documentation",
+      "support": "Support",
+      "faq": "FAQ"
+    },
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy"
+    },
+    "newsletter": {
+      "title": "Stay in the Loop",
+      "subtitle": "Get the latest updates on AI, web development, and digital innovation delivered to your inbox",
+      "placeholder": "Enter your email",
+      "button": "Subscribe"
+    },
+    "copyright": "AiPlace. All rights reserved.",
+    "backToTop": "Back to top"
+  },
+  "common": {
+    "copyright": "© 2025 AiPlace. Where Creativity Meets AI.",
+    "switchLanguage": "Switch to",
+    "ariaLabels": {
+      "toggleTheme": "Toggle theme",
+      "toggleMenu": "Toggle menu",
+      "home": "AiPlace Home",
+      "closeChat": "Close chat",
+      "openChat": "Open chat",
+      "sendMessage": "Send message",
+      "attachFile": "Attach file",
+      "addEmoji": "Add emoji",
+      "voiceInput": "Voice input",
+      "messageInput": "Message input",
+      "minimize": "Minimize",
+      "toggleHistory": "Toggle history",
+      "toggleFullscreen": "Toggle fullscreen",
+      "chatMessages": "Chat messages",
+      "deleteConversation": "Delete conversation",
+      "closeForm": "Close form",
+      "copyCode": "Copy code",
+      "copyMessage": "Copy message",
+      "logoAlt": "AiPlace - Where Creativity Meets AI"
+    }
+  },
+  "chat": {
+    "welcome": "Hi! I'm your AI assistant for AiPlace. How can I help you today?",
+    "responses": {
+      "service": "I can help you with our AI automation services, web development, mobile apps, and more. Would you like to learn about a specific service?",
+      "price": "Our pricing varies based on project scope. Would you like to schedule a free consultation to discuss your needs?",
+      "contact": "I'd be happy to help you get in touch with our team. Please share your contact details and I'll have someone reach out to you.",
+      "default": "Thank you for your message! Our team will get back to you shortly. Is there anything specific I can help you with?"
+    },
+    "quickActions": {
+      "title": "How can I help you today?",
+      "subtitle": "Choose a quick action or type your question below",
+      "services": {
+        "label": "Our Services",
+        "description": "Explore AI solutions"
+      },
+      "booking": {
+        "label": "Book Consultation",
+        "description": "Schedule a call"
+      },
+      "estimate": {
+        "label": "Get Estimate",
+        "description": "Free project quote"
+      },
+      "portfolio": {
+        "label": "View Portfolio",
+        "description": "See our work"
+      },
+      "support": {
+        "label": "Support",
+        "description": "Get help now"
+      },
+      "contact": {
+        "label": "Contact Us",
+        "description": "Reach our team"
+      },
+      "availabilityInfo": "Available 24/7 · Average response time:",
+      "availabilityTime": "Instant"
+    },
+    "leadForm": {
+      "title": "Get in Touch",
+      "subtitle": "We'll respond within 24 hours",
+      "fields": {
+        "fullName": "Full Name",
+        "emailAddress": "Email Address",
+        "phoneNumber": "Phone Number",
+        "phoneOptional": "Phone Number (Optional)",
+        "yourMessage": "Your Message",
+        "required": "*"
+      },
+      "placeholders": {
+        "name": "John Doe",
+        "email": "john@example.com",
+        "phone": "+1 (555) 123-4567",
+        "message": "Tell us about your project or question..."
+      },
+      "errors": {
+        "nameRequired": "Name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Invalid email address",
+        "phoneInvalid": "Invalid phone number",
+        "messageRequired": "Message is required"
+      },
+      "buttons": {
+        "cancel": "Cancel",
+        "send": "Send Message",
+        "sending": "Sending..."
+      },
+      "trustIndicators": {
+        "secure": "Secure",
+        "noSpam": "No spam",
+        "response": "24h response"
+      }
+    }
+  },
+  "portfolioModal": {
+    "projectOverview": "Project Overview",
+    "technologiesUsed": "Technologies Used",
+    "keyResults": "Key Results",
+    "viewFullCaseStudy": "View Full Case Study",
+    "liveProject": "Live Project"
+  },
+  "newsletter": {
+    "title": "Subscribe to Our Newsletter",
+    "description": "Get the latest insights on AI, web development, and digital innovation delivered to your inbox.",
+    "placeholder": "Enter your email",
+    "buttons": {
+      "subscribe": "Subscribe",
+      "subscribing": "Subscribing...",
+      "subscribed": "Subscribed!"
+    },
+    "success": "Thanks for subscribing! Check your email to confirm."
+  },
+  "blog": {
+    "searchPlaceholder": "Search articles...",
+    "categories": {
+      "all": "All",
+      "webDev": "Web Dev",
+      "ai": "AI",
+      "business": "Business",
+      "blockchain": "Blockchain"
+    }
+  }
+}
