@@ -85,6 +85,93 @@
   }
 }
 
+/* Logo breathing glow animation */
+@keyframes logo-breathe {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(157, 78, 221, 0.4))
+            drop-shadow(0 0 40px rgba(255, 0, 110, 0.2));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px rgba(157, 78, 221, 0.6))
+            drop-shadow(0 0 60px rgba(255, 0, 110, 0.3));
+  }
+}
+
+/* Organic orb movements - varied and dynamic */
+@keyframes float-organic-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(15px, -20px) scale(1.1) rotate(5deg); }
+  50% { transform: translate(-10px, -30px) scale(0.95) rotate(-3deg); }
+  75% { transform: translate(-15px, -15px) scale(1.05) rotate(2deg); }
+}
+
+@keyframes float-organic-2 {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  33% { transform: translate(-20px, 15px) scale(1.08) rotate(-4deg); }
+  66% { transform: translate(10px, -25px) scale(0.92) rotate(3deg); }
+}
+
+@keyframes float-organic-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-12px, 18px) scale(1.05); }
+  50% { transform: translate(20px, -10px) scale(0.98); }
+  75% { transform: translate(8px, 22px) scale(1.02); }
+}
+
+@keyframes float-organic-4 {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  40% { transform: translate(18px, -15px) scale(1.12) rotate(5deg); }
+  80% { transform: translate(-15px, 20px) scale(0.94) rotate(-3deg); }
+}
+
+@keyframes float-organic-5 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  30% { transform: translate(-18px, -20px) scale(1.06); }
+  60% { transform: translate(15px, 18px) scale(0.96); }
+}
+
+/* Button shimmer effect */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Ripple effect */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Enhanced gradient pulse */
+@keyframes gradient-pulse {
+  0%, 100% {
+    background-position: 0% 50%;
+    filter: brightness(1);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: brightness(1.2);
+  }
+}
+
+/* Card lift animation */
+@keyframes card-lift {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-12px) scale(1.03); }
+}
+
+/* Gradient shift animation */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
 .animate-fade-in-up {
   animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   opacity: 1;
@@ -117,6 +204,87 @@
 
 .animate-scroll-dot {
   animation: scroll-dot 1.5s ease-in-out infinite;
+}
+
+.animate-logo-breathe {
+  animation: logo-breathe 4s ease-in-out infinite;
+}
+
+.animate-float-organic-1 {
+  animation: float-organic-1 10s ease-in-out infinite;
+}
+
+.animate-float-organic-2 {
+  animation: float-organic-2 12s ease-in-out infinite;
+}
+
+.animate-float-organic-3 {
+  animation: float-organic-3 9s ease-in-out infinite;
+}
+
+.animate-float-organic-4 {
+  animation: float-organic-4 11s ease-in-out infinite;
+}
+
+.animate-float-organic-5 {
+  animation: float-organic-5 13s ease-in-out infinite;
+}
+
+/* Enhanced button styles with shimmer */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+}
+
+.btn-shimmer:hover::before {
+  animation: shimmer 2s infinite;
+}
+
+/* Stat card hover effect */
+.stat-card {
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stat-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(157, 78, 221, 0.3),
+              0 0 80px rgba(0, 212, 255, 0.2);
+}
+
+/* Enhanced brand gradients with higher saturation */
+.bg-gradient-brand-enhanced {
+  background: linear-gradient(135deg,
+    #00D4FF 0%,
+    #4D9FFF 25%,
+    #9D4EDD 50%,
+    #FF1493 75%,
+    #FF006E 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Glow effects with higher intensity */
+.shadow-glow-brand-enhanced {
+  box-shadow:
+    0 0 20px rgba(157, 78, 221, 0.4),
+    0 0 40px rgba(0, 212, 255, 0.3),
+    0 0 60px rgba(255, 0, 110, 0.2);
 }
 
 @layer base {
