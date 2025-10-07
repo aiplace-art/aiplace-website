@@ -5,7 +5,7 @@ import { useTranslation } from '@/lib/i18n'
 import { Globe } from 'lucide-react'
 
 export function LanguageSwitcher() {
-  const { language, setLanguage } = useTranslation()
+  const { language, setLanguage, t } = useTranslation()
   const [isAnimating, setIsAnimating] = useState(false)
 
   const toggleLanguage = () => {

@@ -85,17 +85,17 @@ export default function ServicesPage() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-2xl font-bold text-white mb-3 line-clamp-2 min-h-[4rem]">
+                    <h3 className="text-2xl font-bold text-white mb-3 h-[4.8rem] line-clamp-2">
                       {t(`services.${service.id}.title`)}
                     </h3>
 
                     {/* Subtitle */}
-                    <p className="text-purple-400 text-sm mb-4 line-clamp-1">
+                    <p className="text-purple-400 text-sm mb-4 h-[1.4rem] truncate">
                       {t(`services.${service.id}.subtitle`)}
                     </p>
 
                     {/* Description */}
-                    <p className="text-gray-300 mb-6 flex-grow line-clamp-3 min-h-[4.5rem]">
+                    <p className="text-gray-300 mb-6 h-[4.5rem] line-clamp-3">
                       {t(`services.${service.id}.description`)}
                     </p>
 

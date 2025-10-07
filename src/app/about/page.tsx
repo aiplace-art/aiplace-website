@@ -73,8 +73,8 @@ export default function AboutPage() {
                     {value.icon === 'eye' && '👁️'}
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-2 line-clamp-2 min-h-[3.5rem]">{value.title}</h3>
-                    <p className="text-gray-300 line-clamp-4">{value.description}</p>
+                    <h3 className="text-xl font-bold text-white mb-2 h-[3.5rem] line-clamp-2">{value.title}</h3>
+                    <p className="text-gray-300 h-[5.6rem] line-clamp-4">{value.description}</p>
                   </div>
                 </div>
               </Card>

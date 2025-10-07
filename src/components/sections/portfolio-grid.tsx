@@ -242,19 +242,19 @@ export function PortfolioGrid() {
                   <div className="flex gap-3 pt-2">
                     <Button
                       variant="ghost"
-                      className="flex-1 justify-between px-4 py-2 min-w-[160px] hover:bg-indigo-500/10 group/btn transition-all duration-300"
+                      className="flex-1 justify-between px-4 py-2 min-w-[150px] hover:bg-indigo-500/10 group/btn transition-all duration-300"
                       onClick={() => handleOpenModal(item)}
                     >
-                      <span className="text-sm md:text-base text-indigo-400 truncate">{t("portfolio.quickView")}</span>
+                      <span className="text-sm md:text-base text-indigo-400">{t("portfolio.quickView")}</span>
                       <Eye className="w-4 h-4 md:w-5 md:h-5 text-indigo-400 group-hover/btn:scale-110 transition-transform duration-300 flex-shrink-0" />
                     </Button>
                     <Button
                       variant="ghost"
-                      className="flex-1 justify-between px-4 py-2 min-w-[140px] hover:bg-purple-500/10 group/btn transition-all duration-300"
+                      className="flex-1 justify-between px-4 py-2 min-w-[150px] hover:bg-purple-500/10 group/btn transition-all duration-300"
                       asChild
                     >
                       <a href={`/portfolio/${item.slug}`}>
-                        <span className="text-sm md:text-base text-purple-400 truncate">{t("portfolio.caseStudy")}</span>
+                        <span className="text-sm md:text-base text-purple-400">{t("portfolio.caseStudy")}</span>
                         <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-purple-400 group-hover/btn:translate-x-1 transition-transform duration-300 flex-shrink-0" />
                       </a>
                     </Button>

@@ -71,7 +71,7 @@ export function Hero() {
                 <div className="text-3xl md:text-4xl font-bold text-purple-600 mb-2">
                   {stat.value}
                 </div>
-                <div className="text-xs md:text-sm text-gray-600 uppercase tracking-wide line-clamp-2 min-h-[2.5rem] flex items-center justify-center">
+                <div className="text-xs md:text-sm text-gray-600 uppercase tracking-wide h-[2.8rem] line-clamp-2 flex items-center justify-center">
                   {t(stat.labelKey)}
                 </div>
               </div>
