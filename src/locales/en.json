@@ -225,7 +225,6 @@
         "phone": "Phone Number",
         "company": "Company Name",
         "service": "Which service are you interested in?",
-        "budget": "Budget Range",
         "timeline": "Project Timeline",
         "projectType": "Project Type/Description",
         "message": "Tell us more about your project"
@@ -236,7 +235,6 @@
         "phone": "+1 (555) 000-0000",
         "company": "Your Company",
         "service": "Select a service",
-        "budget": "Select budget range",
         "timeline": "Select timeline",
         "projectType": "e.g., E-commerce website, AI chatbot, Business plan",
         "message": "Share your goals, challenges, or any specific requirements..."
@@ -267,13 +265,6 @@
         "businessPlanning": "Business Planning",
         "tokenomics": "Tokenomics Design",
         "other": "Other"
-      },
-      "budgets": {
-        "5k-10k": "$5,000 - $10,000",
-        "10k-25k": "$10,000 - $25,000",
-        "25k-50k": "$25,000 - $50,000",
-        "50k-100k": "$50,000 - $100,000",
-        "100k+": "$100,000+"
       },
       "timelines": {
         "urgent": "Urgent (< 1 month)",
