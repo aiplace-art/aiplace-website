@@ -23,10 +23,10 @@ export function Hero() {
             <Image
               src="/images/logo.png"
               alt="AiPlace - Where Creativity Meets AI"
-              width={800}
-              height={208}
+              width={1000}
+              height={260}
               priority
-              className="w-auto h-32 md:h-40 lg:h-48 object-contain"
+              className="w-auto h-40 md:h-52 lg:h-64 object-contain"
             />
           </div>
 
