@@ -1,8 +1,7 @@
 "use client"
 
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { ArrowRight, LucideIcon } from "lucide-react"
-import { motion, useReducedMotion } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 interface ServiceCardProps {
@@ -24,129 +23,73 @@ export function ServiceCard({
   href = "#",
   delay = 0,
 }: ServiceCardProps) {
-  const shouldReduceMotion = useReducedMotion()
+  const [isVisible, setIsVisible] = useState(false)
 
-  // Scroll-triggered animation
-  const cardVariants = {
-    hidden: {
-      opacity: 0,
-      y: shouldReduceMotion ? 0 : 30,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-        mass: 0.8,
-        delay: delay * 0.1,
-      },
-    },
-  }
-
-  // Icon rotation on hover
-  const iconVariants = {
-    initial: { rotate: 0 },
-    hover: {
-      rotate: shouldReduceMotion ? 0 : 5,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 10,
-      },
-    },
-  }
+  useEffect(() => {
+    // Trigger entrance animation
+    const timer = setTimeout(() => setIsVisible(true), 50)
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
-    <motion.a
+    <a
       href={href}
-      className="block group h-full"
-      variants={cardVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      whileHover="hover"
+      className={`block group h-full service-card ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      style={{ animationDelay: `${delay * 150}ms` }}
     >
-      <motion.div
-        className="h-full will-change-transform"
-        whileHover={{
-          y: shouldReduceMotion ? 0 : -4,
-          transition: {
-            type: "spring",
-            stiffness: 300,
-            damping: 20,
-          },
-        }}
-      >
-        <Card className="relative h-full bg-white/60 backdrop-blur-sm border border-gray-200/50 rounded-2xl hover:shadow-xl hover:border-gray-300 hover:bg-white/80 transition-all duration-500 overflow-hidden">
-          {/* Subtle gradient overlay on hover */}
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-gray-50/30 to-transparent pointer-events-none" />
+      <Card className="relative h-full bg-white/70 backdrop-blur-md glass-morphism-strong border border-gray-200/60 rounded-3xl service-card-tilt overflow-hidden transition-all duration-600">
+        {/* Gradient overlay that appears on hover */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-br from-gray-50/50 via-purple-50/30 to-blue-50/50 pointer-events-none rounded-3xl" />
 
-          <CardHeader className="relative p-10 pb-8 space-y-8">
-            {/* Icon - Refined and elegant */}
-            <motion.div
-              className={`inline-flex w-14 h-14 rounded-xl items-center justify-center ${gradient} shadow-sm group-hover:shadow-md transition-shadow duration-300 will-change-transform`}
-              variants={iconVariants}
-            >
-              <Icon className="w-7 h-7 text-white" strokeWidth={2} />
-            </motion.div>
+        {/* Gradient border effect */}
+        <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none border-gradient" style={{
+          background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, rgba(0, 212, 255, 0.4), rgba(157, 78, 221, 0.4), rgba(255, 0, 110, 0.4)) border-box',
+          border: '2px solid transparent'
+        }} />
 
-            {/* Title and description - Clear hierarchy */}
-            <div className="space-y-4">
-              <CardTitle className="text-3xl lg:text-4xl font-semibold text-gray-900 tracking-tight leading-tight">
-                {title}
-              </CardTitle>
-              <CardDescription className="text-lg text-gray-600 leading-relaxed font-normal">
-                {description}
-              </CardDescription>
-            </div>
-          </CardHeader>
+        <CardHeader className="relative p-10 pb-8 space-y-8 z-10">
+          {/* Icon with enhanced bounce and glow on hover */}
+          <div className={`inline-flex w-16 h-16 rounded-2xl items-center justify-center ${gradient} shadow-lg group-hover:shadow-2xl transition-all duration-500 service-icon-bounce`}>
+            <Icon className="w-8 h-8 text-white" strokeWidth={2.5} />
+          </div>
 
-          <CardContent className="relative p-10 pt-0 space-y-8">
-            {/* Clean bullet list - scannable */}
-            <ul className="space-y-4">
-              {offerings.map((offering, index) => (
-                <motion.li
-                  key={index}
-                  className="flex items-start gap-4 text-base text-gray-700 leading-relaxed"
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    delay: delay * 0.1 + index * 0.05,
-                    duration: 0.3,
-                    ease: "easeOut",
-                  }}
-                >
-                  <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2.5 flex-shrink-0 group-hover:bg-gray-900 transition-colors duration-300" />
-                  <span className="font-normal">{offering}</span>
-                </motion.li>
-              ))}
-            </ul>
+          {/* Title and description with gradient underline effect */}
+          <div className="space-y-4">
+            <CardTitle className="text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight leading-tight gradient-underline">
+              {title}
+            </CardTitle>
+            <CardDescription className="text-lg text-gray-600 leading-relaxed font-normal">
+              {description}
+            </CardDescription>
+          </div>
+        </CardHeader>
 
-            {/* Call-to-action - subtle but clear */}
-            <motion.div
-              className="pt-2 flex items-center gap-2 text-gray-900 font-medium"
-              initial={{ gap: "0.5rem" }}
-              whileHover={{
-                gap: shouldReduceMotion ? "0.5rem" : "0.75rem",
-                transition: { type: "spring", stiffness: 400, damping: 25 },
-              }}
-            >
-              <span className="text-base">Learn more</span>
-              <motion.div
-                whileHover={{
-                  x: shouldReduceMotion ? 0 : 2,
-                  transition: { type: "spring", stiffness: 400, damping: 10 },
-                }}
+        <CardContent className="relative p-10 pt-0 space-y-8 z-10">
+          {/* Enhanced bullet list with staggered fade-in */}
+          <ul className="space-y-4">
+            {offerings.map((offering, index) => (
+              <li
+                key={index}
+                className="flex items-start gap-4 text-base text-gray-700 leading-relaxed opacity-0 animate-fade-in-up"
+                style={{ animationDelay: `${(delay * 150) + (index * 100)}ms`, animationFillMode: 'forwards' }}
               >
-                <ArrowRight className="w-5 h-5" strokeWidth={2} />
-              </motion.div>
-            </motion.div>
-          </CardContent>
-        </Card>
-      </motion.div>
-    </motion.a>
+                <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 mt-2 flex-shrink-0 group-hover:scale-125 transition-transform duration-300" />
+                <span className="font-medium">{offering}</span>
+              </li>
+            ))}
+          </ul>
+
+          {/* Enhanced CTA with arrow animation */}
+          <div className="pt-2 flex items-center gap-3 text-gray-900 font-semibold group-hover:gap-4 transition-all duration-300">
+            <span className="text-base bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              Learn more
+            </span>
+            <div className="transform group-hover:translate-x-2 transition-transform duration-300">
+              <ArrowRight className="w-5 h-5 text-purple-600" strokeWidth={2.5} />
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </a>
   )
 }

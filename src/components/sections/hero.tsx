@@ -26,24 +26,30 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 w-full py-12 md:py-16">
         <div className="flex flex-col items-center text-center space-y-6 animate-fade-in-up">
-          {/* Logo - Enhanced with breathing glow animation */}
+          {/* Logo - Enhanced with breathing glow animation and gradient border */}
           <div className="relative mb-8 animate-fade-in-scale group">
-            {/* Enhanced animated glow effects with increased intensity */}
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-pink-500/50 via-brand-purple-500/50 to-brand-blue-500/50 blur-[80px] opacity-60 animate-pulse-glow" />
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-blue-400/40 via-brand-cyan-400/40 to-brand-purple-400/40 blur-[60px] animate-pulse" />
+            {/* Gradient border container with glass morphism */}
+            <div className="relative p-8 md:p-10 lg:p-12 rounded-3xl glass-morphism-strong border-gradient" style={{
+              background: 'linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6)) padding-box, linear-gradient(135deg, rgba(0, 212, 255, 0.6), rgba(157, 78, 221, 0.6), rgba(255, 0, 110, 0.6)) border-box',
+              border: '3px solid transparent'
+            }}>
+              {/* Enhanced animated glow effects with increased intensity */}
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-pink-500/50 via-brand-purple-500/50 to-brand-blue-500/50 blur-[80px] opacity-60 animate-pulse-glow rounded-3xl" />
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-blue-400/40 via-brand-cyan-400/40 to-brand-purple-400/40 blur-[60px] animate-pulse rounded-3xl" />
 
-            {/* Main logo - with breathing glow effect (4s cycle) */}
-            <Image
-              src="/images/logo.png"
-              alt="AiPlace - Where Creativity Meets AI"
-              width={1000}
-              height={260}
-              priority
-              className="relative w-auto h-40 md:h-52 lg:h-64 object-contain animate-logo-breathe group-hover:scale-105 transition-transform duration-300"
-            />
+              {/* Main logo - with breathing glow effect (4s cycle) */}
+              <Image
+                src="/images/logo.png"
+                alt="AiPlace - Where Creativity Meets AI"
+                width={1000}
+                height={260}
+                priority
+                className="relative w-auto h-32 md:h-44 lg:h-56 object-contain animate-logo-breathe group-hover:scale-105 transition-transform duration-500 z-10"
+              />
 
-            {/* Enhanced decorative elements with higher intensity */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-brand-pink-500/30 via-brand-purple-500/30 to-brand-blue-500/30 rounded-3xl blur-2xl opacity-70" />
+              {/* Enhanced decorative elements with higher intensity */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-brand-pink-500/30 via-brand-purple-500/30 to-brand-blue-500/30 rounded-3xl blur-2xl opacity-70 group-hover:opacity-90 transition-opacity duration-500" />
+            </div>
           </div>
 
           {/* Main headline with gradient text - compact sizing */}
@@ -86,8 +92,8 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Statistics with enhanced gradient accents and hover effects */}
-          <div className="grid grid-cols-3 gap-8 md:gap-12 pt-10 border-t border-brand-purple-200/40 mt-10 w-full max-w-4xl animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+          {/* Statistics with enhanced gradient accents, glass morphism, and hover effects */}
+          <div className="grid grid-cols-3 gap-6 md:gap-10 pt-10 border-t border-brand-purple-200/40 mt-10 w-full max-w-4xl animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
             {[
               { value: "150+", labelKey: "hero.stats.projects", gradient: "from-brand-pink-600 to-brand-purple-600" },
               { value: "98%", labelKey: "hero.stats.satisfaction", gradient: "from-brand-purple-600 to-brand-blue-600" },
@@ -95,12 +101,12 @@ export function Hero() {
             ].map((stat) => (
               <div
                 key={stat.labelKey}
-                className="text-center group cursor-default stat-card rounded-2xl p-4 -m-4 bg-white/40 backdrop-blur-sm hover:bg-white/60"
+                className="text-center group cursor-default stat-card rounded-2xl p-5 glass-morphism-strong border border-white/30 hover:border-brand-purple-400/50 transition-all duration-500"
               >
-                <div className={`text-3xl md:text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent tracking-tight transition-all duration-300 group-hover:scale-110`}>
+                <div className={`text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent tracking-tight transition-all duration-500 group-hover:scale-110`}>
                   {stat.value}
                 </div>
-                <div className="text-xs md:text-sm text-navy-600 mt-2 uppercase tracking-wider font-medium transition-colors duration-300 group-hover:text-navy-800">
+                <div className="text-xs md:text-sm text-navy-700 mt-3 uppercase tracking-wider font-semibold transition-colors duration-500 group-hover:text-navy-900">
                   {t(stat.labelKey)}
                 </div>
               </div>
