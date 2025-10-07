@@ -19,25 +19,25 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
       {/* Hero Section */}
-      <section className="relative py-20 px-4">
+      <section className="relative py-20 md:py-24 px-4">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(74,222,128,0.1),transparent_50%)]" />
 
         <div className="container max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-purple-500/20 text-purple-300 border-purple-500/30">
+            <Badge className="mb-6 bg-purple-500/20 text-purple-300 border-purple-500/30">
               {t('about.badge')}
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent tracking-tight">
               {t('about.hero.title')}
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               {t('about.hero.description')}
             </p>
           </div>
 
           {/* Company Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-20">
             {companyStats.map((stat) => (
               <Card key={stat.label} className="bg-white/5 border-white/10 backdrop-blur-sm p-6 text-center">
                 <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
@@ -51,20 +51,20 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Values */}
-      <section className="py-20 px-4 bg-white/5">
+      <section className="py-20 md:py-24 px-4 bg-white/5">
         <div className="container max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white tracking-tight">
               {t('about.mission.title')}
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               {t('about.mission.description')}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             {companyValues.map((value) => (
-              <Card key={value.title} className="bg-gradient-to-br from-white/10 to-white/5 border-white/10 backdrop-blur-sm p-8 hover:scale-105 transition-transform">
+              <Card key={value.title} className="bg-gradient-to-br from-white/10 to-white/5 border-white/10 backdrop-blur-sm p-8 hover:scale-105 transition-transform h-full">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
                     {value.icon === 'rocket' && '🚀'}
@@ -84,13 +84,13 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 px-4">
+      <section className="py-20 md:py-24 px-4">
         <div className="container max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white tracking-tight">
               {t('about.team.title')}
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               {t('about.team.description')}
             </p>
           </div>
@@ -150,13 +150,13 @@ export default function AboutPage() {
       </section>
 
       {/* Technology Stack */}
-      <section className="py-20 px-4 bg-white/5">
+      <section className="py-20 md:py-24 px-4 bg-white/5">
         <div className="container max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white tracking-tight">
               {t('about.tech.title')}
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               {t('about.tech.description')}
             </p>
           </div>
@@ -179,13 +179,13 @@ export default function AboutPage() {
       </section>
 
       {/* Process */}
-      <section className="py-20 px-4">
+      <section className="py-20 md:py-24 px-4">
         <div className="container max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white tracking-tight">
               {t('about.process.title')}
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               {t('about.process.description')}
             </p>
           </div>
@@ -205,12 +205,12 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-purple-900/50 to-pink-900/50">
+      <section className="py-20 md:py-24 px-4 bg-gradient-to-r from-purple-900/50 to-pink-900/50">
         <div className="container max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white tracking-tight">
             {t('about.cta.title')}
           </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
             {t('about.cta.description')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

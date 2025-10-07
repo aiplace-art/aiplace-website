@@ -77,8 +77,8 @@ export function ServicesGrid() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
         {/* Header - Clean and confident */}
-        <div className="text-center mb-12 max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-tight leading-none">
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight leading-tight">
             {t("services.title")}
           </h2>
           <p className="text-lg md:text-xl text-gray-600 font-normal leading-relaxed">

@@ -19,7 +19,7 @@ export function Hero() {
         <div className="flex flex-col items-center text-center space-y-6">
 
           {/* Logo - Clean and simple */}
-          <div className="mb-2">
+          <div className="mb-6">
             <Image
               src="/images/logo.png"
               alt="AiPlace - Where Creativity Meets AI"
@@ -31,18 +31,18 @@ export function Hero() {
           </div>
 
           {/* Main headline */}
-          <div className="space-y-3 max-w-4xl">
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+          <div className="space-y-6 max-w-4xl">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight">
               {t("hero.title")} {t("hero.titleLine2")}
             </h1>
 
-            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
               {t("hero.description")}
             </p>
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 pt-2">
+          <div className="flex flex-col sm:flex-row gap-4 pt-6">
             <Button
               size="lg"
               className="h-12 px-8 text-base font-semibold bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white rounded-lg shadow-lg hover:shadow-xl transition-all"
@@ -61,17 +61,17 @@ export function Hero() {
           </div>
 
           {/* Statistics - Clean and compact */}
-          <div className="grid grid-cols-3 gap-6 pt-8 mt-8 border-t border-gray-200 w-full max-w-3xl">
+          <div className="grid grid-cols-3 gap-8 pt-12 mt-12 border-t border-gray-200 w-full max-w-3xl">
             {[
               { value: "150+", labelKey: "hero.stats.projects" },
               { value: "98%", labelKey: "hero.stats.satisfaction" },
               { value: "24/7", labelKey: "hero.stats.support" },
             ].map((stat) => (
               <div key={stat.labelKey} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-purple-600 mb-1">
+                <div className="text-3xl md:text-4xl font-bold text-purple-600 mb-2">
                   {stat.value}
                 </div>
-                <div className="text-xs md:text-sm text-gray-600 uppercase tracking-wide">
+                <div className="text-sm md:text-base text-gray-600 uppercase tracking-wide">
                   {t(stat.labelKey)}
                 </div>
               </div>

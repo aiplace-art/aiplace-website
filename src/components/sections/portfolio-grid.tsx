@@ -131,14 +131,14 @@ export function PortfolioGrid() {
   }, [])
 
   return (
-    <section className="relative py-16 md:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gray-950 section-spacing-md">
+    <section className="relative py-16 md:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gray-950 section-spacing-md">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
-        <div className="text-center mb-12 animate-fade-in-up">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+        <div className="text-center mb-16 animate-fade-in-up">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
             {t("portfolio.title")}
           </h2>
-          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
             {t("portfolio.description")}
           </p>
         </div>

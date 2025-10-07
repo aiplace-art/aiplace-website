@@ -51,12 +51,12 @@ export default function PortfolioPage() {
           transition={{ duration: 0.6 }}
           className="max-w-7xl mx-auto text-center relative z-10"
         >
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               Our Portfolio
             </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
             Explore our successful projects across web development, AI solutions, business applications, and blockchain innovation.
           </p>
           <div className="flex items-center justify-center gap-4 text-sm text-gray-500">
@@ -145,7 +145,7 @@ export default function PortfolioPage() {
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                 >
-                  <Link href={`/portfolio/${project.slug}`}>
+                  <Link href={`/portfolio/${project.slug}`} className="h-full">
                     <div className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-full flex flex-col">
                       {/* Project Image */}
                       <div className="relative h-56 bg-gradient-to-br from-blue-600 to-purple-600 overflow-hidden">
@@ -253,7 +253,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600">
+      <section className="py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -261,10 +261,10 @@ export default function PortfolioPage() {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto text-center text-white"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
             Ready to Start Your Project?
           </h2>
-          <p className="text-xl mb-8 text-white/90">
+          <p className="text-lg md:text-xl mb-8 text-white/90 leading-relaxed">
             Let's build something amazing together. Get in touch with our team today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

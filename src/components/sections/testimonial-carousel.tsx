@@ -91,7 +91,7 @@ export function TestimonialCarousel() {
   const currentTestimonial = testimonials[currentIndex]
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gray-950">
+    <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gray-950">
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/30 via-purple-950/20 to-pink-950/30" />
       <motion.div
@@ -110,10 +110,10 @@ export function TestimonialCarousel() {
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
             {t("testimonials.title")}
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
             {t("testimonials.description")}
           </p>
         </div>
