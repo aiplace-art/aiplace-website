@@ -24,6 +24,90 @@
     "title": "What We Do",
     "description": "Comprehensive solutions from concept to completion.",
     "descriptionLine2": "One partner for your entire digital journey.",
+    "summary": {
+      "title": "We Build the Impossible",
+      "items": [
+        "Any web application with any features (even crazy ideas with AI)",
+        "Viral software of any complexity with possible AI integration",
+        "Telegram bots for various purposes (anything your imagination allows, within physics and logic)",
+        "Any idea, even seemingly impossible, can be done (if it doesn't violate logic or physics). It all depends on the budget."
+      ]
+    },
+    "landingPages": {
+      "title": "Landing Page Development",
+      "subtitle": "HTML/Next.js/React",
+      "description": "High-converting landing pages that capture attention and drive action",
+      "features": [
+        "Modern, responsive design optimized for all devices",
+        "Lightning-fast loading speeds for better SEO",
+        "Conversion-focused architecture",
+        "A/B testing ready structure",
+        "SEO optimization built-in"
+      ]
+    },
+    "webPlatforms": {
+      "title": "Web Platform Development",
+      "subtitle": "React/Next.js + Node.js/Python",
+      "description": "Complex web applications built for scale and performance",
+      "features": [
+        "Full-stack custom development",
+        "Scalable microservices architecture",
+        "Real-time data processing",
+        "Advanced user authentication and security",
+        "API integration and development"
+      ]
+    },
+    "websiteCloning": {
+      "title": "Website Cloning & Rebranding",
+      "subtitle": "HTML/Next.js/React",
+      "description": "Rapid deployment of proven website concepts with your brand",
+      "features": [
+        "Pixel-perfect recreation of existing websites",
+        "Complete rebranding and customization",
+        "Enhanced functionality and features",
+        "Quick turnaround deployment",
+        "Performance optimization included"
+      ]
+    },
+    "telegramBots": {
+      "title": "Telegram Bot Development",
+      "subtitle": "Custom Bot Solutions",
+      "description": "Powerful Telegram bots with any functionality you can imagine",
+      "features": [
+        "Chat bots with custom logic and AI integration",
+        "Admin panels for complete bot control",
+        "Mass messaging and broadcast systems",
+        "Payment integration and e-commerce features",
+        "Database integration and user management",
+        "Custom commands and interactive menus"
+      ]
+    },
+    "voiceAssistants": {
+      "title": "AI Voice Assistants",
+      "subtitle": "Next-Gen Voice Technology",
+      "description": "AI-powered voice assistants that understand and respond naturally",
+      "features": [
+        "Natural language processing and understanding",
+        "Phone system integration for business",
+        "Multi-language support",
+        "Custom voice personality and responses",
+        "CRM and database integration",
+        "24/7 automated customer service"
+      ]
+    },
+    "aiWidgets": {
+      "title": "AI Widget Integration",
+      "subtitle": "Voice & Text Assistants",
+      "description": "Seamless AI assistant integration for your website or application",
+      "features": [
+        "Voice and text chat capabilities",
+        "Easy website widget integration",
+        "Custom AI training on your data",
+        "Multi-channel support (web, mobile, app)",
+        "Analytics and conversation insights",
+        "Lead generation and qualification"
+      ]
+    },
     "webDev": {
       "title": "Web Development",
       "description": "Modern websites and applications built with cutting-edge technology"
@@ -173,6 +257,12 @@
         }
       },
       "services": {
+        "landingPages": "Landing Page Development",
+        "webPlatforms": "Web Platform Development",
+        "websiteCloning": "Website Cloning & Rebranding",
+        "telegramBots": "Telegram Bot Development",
+        "voiceAssistants": "AI Voice Assistants",
+        "aiWidgets": "AI Widget Integration",
         "webDevelopment": "Web Development",
         "aiSolutions": "AI Solutions",
         "businessPlanning": "Business Planning",
@@ -265,6 +355,12 @@
       "legal": "Legal"
     },
     "services": {
+      "landingPages": "Landing Pages",
+      "webPlatforms": "Web Platforms",
+      "websiteCloning": "Website Cloning",
+      "telegramBots": "Telegram Bots",
+      "voiceAssistants": "Voice Assistants",
+      "aiWidgets": "AI Widgets",
       "webDevelopment": "Web Development",
       "aiSolutions": "AI Solutions",
       "businessPlanning": "Business Planning",
