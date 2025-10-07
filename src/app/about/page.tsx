@@ -1,9 +1,11 @@
-import type { Metadata } from 'next'
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { useTranslation } from '@/lib/i18n/hooks'
 import {
   teamMembers,
   companyStats,
@@ -12,18 +14,8 @@ import {
   processSteps
 } from '@/data/team'
 
-export const metadata: Metadata = {
-  title: 'About Us - AiPlace | Digital Innovation & AI Solutions',
-  description: 'Learn about AiPlace - your partner in digital transformation. Meet our expert team and discover how we help businesses succeed with cutting-edge technology.',
-  keywords: ['about aiplace', 'team', 'company', 'digital innovation', 'ai solutions'],
-  openGraph: {
-    title: 'About Us - AiPlace',
-    description: 'Meet the team behind innovative digital solutions',
-    type: 'website',
-  },
-}
-
 export default function AboutPage() {
+  const { t } = useTranslation()
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
       {/* Hero Section */}
@@ -34,14 +26,13 @@ export default function AboutPage() {
         <div className="container max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-purple-500/20 text-purple-300 border-purple-500/30">
-              About AiPlace
+              {t('about.badge')}
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
-              Building the Future of Digital Innovation
+              {t('about.hero.title')}
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              We empower businesses to thrive in the digital age with cutting-edge AI solutions,
-              exceptional web development, and strategic consulting.
+              {t('about.hero.description')}
             </p>
           </div>
 
@@ -64,11 +55,10 @@ export default function AboutPage() {
         <div className="container max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
-              Our Mission & Values
+              {t('about.mission.title')}
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              We believe in using technology to create meaningful impact. Our values guide
-              everything we do, from the code we write to the relationships we build.
+              {t('about.mission.description')}
             </p>
           </div>
 
@@ -98,10 +88,10 @@ export default function AboutPage() {
         <div className="container max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
-              Meet Our Team
+              {t('about.team.title')}
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              A diverse group of experts passionate about technology and innovation
+              {t('about.team.description')}
             </p>
           </div>
 
@@ -164,10 +154,10 @@ export default function AboutPage() {
         <div className="container max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
-              Our Technology Stack
+              {t('about.tech.title')}
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              We use cutting-edge technologies to build scalable, secure, and performant solutions
+              {t('about.tech.description')}
             </p>
           </div>
 
@@ -193,10 +183,10 @@ export default function AboutPage() {
         <div className="container max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
-              Our Process
+              {t('about.process.title')}
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              A proven methodology that delivers results
+              {t('about.process.description')}
             </p>
           </div>
 
@@ -218,18 +208,17 @@ export default function AboutPage() {
       <section className="py-20 px-4 bg-gradient-to-r from-purple-900/50 to-pink-900/50">
         <div className="container max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
-            Ready to Transform Your Business?
+            {t('about.cta.title')}
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Join the businesses that trust AiPlace to deliver innovative digital solutions.
-            Let's build something amazing together.
+            {t('about.cta.description')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">
-              <Link href="/#contact">Start a Project</Link>
+              <Link href="/#contact">{t('about.cta.startProject')}</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-white/20 hover:bg-white/10">
-              <Link href="/blog">Read Our Blog</Link>
+              <Link href="/blog">{t('about.cta.readBlog')}</Link>
             </Button>
           </div>
         </div>
