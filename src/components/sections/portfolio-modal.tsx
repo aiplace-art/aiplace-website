@@ -6,6 +6,7 @@ import { X, ExternalLink, ArrowRight, Check } from "lucide-react"
 import { PortfolioItem } from "@/types"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { useTranslation } from "@/lib/i18n/hooks"
 
 interface PortfolioModalProps {
   item: PortfolioItem | null
@@ -14,6 +15,7 @@ interface PortfolioModalProps {
 }
 
 export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
+  const { t } = useTranslation()
   if (!item) return null
 
   return (
@@ -90,7 +92,7 @@ export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
                     transition={{ delay: 0.4 }}
                   >
                     <h3 className="text-xl md:text-2xl font-semibold text-white mb-4">
-                      Project Overview
+                      {t("modal.projectOverview")}
                     </h3>
                     <p className="text-base md:text-lg text-gray-300 leading-relaxed">
                       {item.description}
@@ -104,7 +106,7 @@ export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
                     transition={{ delay: 0.5 }}
                   >
                     <h3 className="text-xl md:text-2xl font-semibold text-white mb-4">
-                      Technologies Used
+                      {t("modal.technologiesUsed")}
                     </h3>
                     <div className="flex flex-wrap gap-3">
                       {item.tags.map((tag) => (
@@ -126,7 +128,7 @@ export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
                     transition={{ delay: 0.6 }}
                   >
                     <h3 className="text-xl md:text-2xl font-semibold text-white mb-6">
-                      Key Results
+                      {t("modal.keyResults")}
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       {item.results.map((result, i) => (
@@ -168,7 +170,7 @@ export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
                       asChild
                     >
                       <a href={`/portfolio/${item.slug}`}>
-                        View Full Case Study
+                        {t("modal.viewFullCaseStudy")}
                         <ArrowRight className="w-5 h-5 md:w-6 md:h-6 ml-2 group-hover:translate-x-1 transition-transform" />
                       </a>
                     </Button>
@@ -177,7 +179,7 @@ export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
                       variant="outline"
                       className="border-white/20 hover:bg-white/5 group px-6 py-6 text-base md:text-lg"
                     >
-                      Live Project
+                      {t("modal.liveProject")}
                       <ExternalLink className="w-5 h-5 md:w-6 md:h-6 ml-2 group-hover:scale-110 transition-transform" />
                     </Button>
                   </motion.div>
