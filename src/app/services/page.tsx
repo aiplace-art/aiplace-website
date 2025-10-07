@@ -85,17 +85,17 @@ export default function ServicesPage() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-2xl font-bold text-white mb-3">
+                    <h3 className="text-2xl font-bold text-white mb-3 line-clamp-2 min-h-[4rem]">
                       {t(`services.${service.id}.title`)}
                     </h3>
 
                     {/* Subtitle */}
-                    <p className="text-purple-400 text-sm mb-4">
+                    <p className="text-purple-400 text-sm mb-4 line-clamp-1">
                       {t(`services.${service.id}.subtitle`)}
                     </p>
 
                     {/* Description */}
-                    <p className="text-gray-300 mb-6 flex-grow">
+                    <p className="text-gray-300 mb-6 flex-grow line-clamp-3 min-h-[4.5rem]">
                       {t(`services.${service.id}.description`)}
                     </p>
 
@@ -112,7 +112,7 @@ export default function ServicesPage() {
                     {/* CTA Button */}
                     <Button
                       asChild
-                      className={`w-full bg-gradient-to-r ${service.color} hover:opacity-90 transition-opacity`}
+                      className={`w-full min-w-[180px] bg-gradient-to-r ${service.color} hover:opacity-90 transition-opacity`}
                     >
                       <Link href={service.href}>
                         {t("services.learnMore")}

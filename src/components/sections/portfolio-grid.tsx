@@ -150,7 +150,7 @@ export function PortfolioGrid() {
               key={category.value}
               variant={selectedCategory === category.value ? "default" : "secondary"}
               onClick={() => setSelectedCategory(category.value)}
-              className={`rounded-full px-6 py-2.5 transition-all duration-500 portfolio-filter-btn ${
+              className={`rounded-full px-6 py-2.5 min-w-[140px] transition-all duration-500 portfolio-filter-btn ${
                 selectedCategory === category.value
                   ? "bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 shadow-lg shadow-indigo-500/50 scale-105"
                   : "bg-gray-800 hover:bg-gray-700 border-gray-700 hover:scale-105"
@@ -242,20 +242,20 @@ export function PortfolioGrid() {
                   <div className="flex gap-3 pt-2">
                     <Button
                       variant="ghost"
-                      className="flex-1 justify-between px-4 py-2 hover:bg-indigo-500/10 group/btn transition-all duration-300"
+                      className="flex-1 justify-between px-4 py-2 min-w-[160px] hover:bg-indigo-500/10 group/btn transition-all duration-300"
                       onClick={() => handleOpenModal(item)}
                     >
-                      <span className="text-sm md:text-base text-indigo-400">{t("portfolio.quickView")}</span>
-                      <Eye className="w-4 h-4 md:w-5 md:h-5 text-indigo-400 group-hover/btn:scale-110 transition-transform duration-300" />
+                      <span className="text-sm md:text-base text-indigo-400 truncate">{t("portfolio.quickView")}</span>
+                      <Eye className="w-4 h-4 md:w-5 md:h-5 text-indigo-400 group-hover/btn:scale-110 transition-transform duration-300 flex-shrink-0" />
                     </Button>
                     <Button
                       variant="ghost"
-                      className="flex-1 justify-between px-4 py-2 hover:bg-purple-500/10 group/btn transition-all duration-300"
+                      className="flex-1 justify-between px-4 py-2 min-w-[140px] hover:bg-purple-500/10 group/btn transition-all duration-300"
                       asChild
                     >
                       <a href={`/portfolio/${item.slug}`}>
-                        <span className="text-sm md:text-base text-purple-400">{t("portfolio.caseStudy")}</span>
-                        <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-purple-400 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                        <span className="text-sm md:text-base text-purple-400 truncate">{t("portfolio.caseStudy")}</span>
+                        <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-purple-400 group-hover/btn:translate-x-1 transition-transform duration-300 flex-shrink-0" />
                       </a>
                     </Button>
                   </div>
@@ -270,7 +270,7 @@ export function PortfolioGrid() {
           <Button
             size="lg"
             variant="outline"
-            className="group border-indigo-500/50 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 hover:border-transparent transition-all duration-500 px-8 py-6 text-base md:text-lg hover:scale-105"
+            className="group border-indigo-500/50 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 hover:border-transparent transition-all duration-500 px-8 py-6 text-base md:text-lg hover:scale-105 min-w-[240px]"
           >
             {t("portfolio.viewAll")}
             <ArrowRight className="w-5 h-5 md:w-6 md:h-6 ml-2 group-hover:translate-x-1 transition-transform duration-300" />

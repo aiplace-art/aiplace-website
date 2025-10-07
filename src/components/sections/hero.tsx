@@ -45,7 +45,7 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 pt-6">
             <Button
               size="lg"
-              className="h-12 px-8 text-base font-semibold bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white rounded-lg shadow-lg hover:shadow-xl transition-all"
+              className="h-12 px-8 text-base font-semibold min-w-[180px] bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white rounded-lg shadow-lg hover:shadow-xl transition-all"
             >
               {t("hero.getStarted")}
               <ArrowRight className="w-4 h-4 ml-2" />
@@ -54,7 +54,7 @@ export function Hero() {
             <Button
               size="lg"
               variant="outline"
-              className="h-12 px-8 text-base font-semibold border-2 border-purple-600 text-purple-600 hover:bg-purple-50 rounded-lg transition-all"
+              className="h-12 px-8 text-base font-semibold min-w-[180px] border-2 border-purple-600 text-purple-600 hover:bg-purple-50 rounded-lg transition-all"
             >
               {t("hero.learnMore")}
             </Button>
@@ -71,7 +71,7 @@ export function Hero() {
                 <div className="text-3xl md:text-4xl font-bold text-purple-600 mb-2">
                   {stat.value}
                 </div>
-                <div className="text-sm md:text-base text-gray-600 uppercase tracking-wide">
+                <div className="text-xs md:text-sm text-gray-600 uppercase tracking-wide line-clamp-2 min-h-[2.5rem] flex items-center justify-center">
                   {t(stat.labelKey)}
                 </div>
               </div>

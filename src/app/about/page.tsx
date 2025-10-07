@@ -73,8 +73,8 @@ export default function AboutPage() {
                     {value.icon === 'eye' && '👁️'}
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-2">{value.title}</h3>
-                    <p className="text-gray-300">{value.description}</p>
+                    <h3 className="text-xl font-bold text-white mb-2 line-clamp-2 min-h-[3.5rem]">{value.title}</h3>
+                    <p className="text-gray-300 line-clamp-4">{value.description}</p>
                   </div>
                 </div>
               </Card>
@@ -214,10 +214,10 @@ export default function AboutPage() {
             {t('about.cta.description')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">
+            <Button asChild size="lg" className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 min-w-[180px]">
               <Link href="/#contact">{t('about.cta.startProject')}</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white/20 hover:bg-white/10">
+            <Button asChild size="lg" variant="outline" className="border-white/20 hover:bg-white/10 min-w-[180px]">
               <Link href="/blog">{t('about.cta.readBlog')}</Link>
             </Button>
           </div>
