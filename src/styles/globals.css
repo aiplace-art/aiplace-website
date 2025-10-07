@@ -4,6 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import custom effects - must come after @tailwind directives */
+@import './hero-effects.css';
+
 /* ============================================
    AIPLACE DESIGN SYSTEM - Brand Identity
    Tagline: "Where Creativity Meets AI"
