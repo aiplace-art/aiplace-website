@@ -2,6 +2,7 @@ import { Metadata } from "next"
 import dynamic from "next/dynamic"
 import { Hero } from "@/components/sections/hero"
 import { ServicesGrid } from "@/components/sections/services-grid"
+import { AIAgentsSection } from "@/components/sections/ai-agents-section"
 import { PortfolioGrid } from "@/components/sections/portfolio-grid"
 import { TestimonialCarousel } from "@/components/sections/testimonial-carousel"
 import { ContactSection } from "@/components/sections/contact-section"
@@ -73,6 +74,13 @@ export default function Home() {
           <section id="services" className="scroll-mt-24 py-16 md:py-20">
             <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
               <ServicesGrid />
+            </div>
+          </section>
+
+          {/* AI Agents Section - New section highlighting AI + Human collaboration */}
+          <section id="ai-agents" className="scroll-mt-24 py-16 md:py-20">
+            <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
+              <AIAgentsSection />
             </div>
           </section>
 

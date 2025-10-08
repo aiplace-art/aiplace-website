@@ -125,6 +125,90 @@
     },
     "learnMore": "Learn More"
   },
+  "aiAgents": {
+    "badge": "AI-Powered Excellence",
+    "title": "Your Business on a Superprofessional Level",
+    "description": "We combine cutting-edge AI agents with top industry professionals to deliver results that exceed expectations. Scale your business faster, smarter, and more efficiently.",
+    "stats": {
+      "efficiency": {
+        "value": "10x",
+        "label": "Faster Delivery"
+      },
+      "speed": {
+        "value": "24/7",
+        "label": "Continuous Work"
+      },
+      "quality": {
+        "value": "99.9%",
+        "label": "Accuracy Rate"
+      },
+      "availability": {
+        "value": "100%",
+        "label": "Team Availability"
+      }
+    },
+    "agents": {
+      "ai": {
+        "title": "AI Agents Working for You",
+        "description": "Advanced AI systems that handle repetitive tasks, analyze data, and provide insights 24/7",
+        "features": [
+          "Automated workflows and processes",
+          "Real-time data analysis and reporting",
+          "Intelligent decision support systems"
+        ]
+      },
+      "team": {
+        "title": "Expert Human Professionals",
+        "description": "Seasoned developers, designers, and strategists with years of industry experience",
+        "features": [
+          "Creative problem-solving and innovation",
+          "Strategic planning and consulting",
+          "Quality assurance and optimization"
+        ]
+      },
+      "speed": {
+        "title": "Lightning-Fast Execution",
+        "description": "Parallel processing and automated pipelines deliver projects in record time",
+        "features": [
+          "Concurrent task execution",
+          "Automated testing and deployment",
+          "Rapid prototyping and iteration"
+        ]
+      },
+      "scale": {
+        "title": "Infinite Scalability",
+        "description": "Scale your operations without hiring constraints or capacity limitations",
+        "features": [
+          "On-demand resource allocation",
+          "Seamless project expansion",
+          "No bottlenecks or delays"
+        ]
+      }
+    },
+    "howItWorks": {
+      "title": "How We Elevate Your Business",
+      "steps": [
+        {
+          "title": "AI Analyzes & Plans",
+          "description": "Our AI agents analyze your requirements, market data, and best practices to create an optimal strategy"
+        },
+        {
+          "title": "Humans + AI Execute",
+          "description": "Professional team works alongside AI tools to implement solutions with precision and creativity"
+        },
+        {
+          "title": "Continuous Optimization",
+          "description": "AI monitors performance, suggests improvements, and ensures your project stays ahead of the curve"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Transform Your Business?",
+      "description": "Join leading companies that trust our AI-human hybrid approach to deliver exceptional results",
+      "startNow": "Start Your Project",
+      "learnMore": "Learn More"
+    }
+  },
   "portfolio": {
     "title": "Featured Projects",
     "description": "Explore our portfolio of successful client projects",
